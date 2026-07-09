@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Precificação Sem Culpa — Andreza Barros | Método DAC</title>
+  <meta name="description" content="O passo a passo para definir, comunicar e sustentar o valor justo da sua sessão. Guia + planilha + aula + script de reajuste. Por R$47.">
+  <meta property="og:title" content="Precificação Sem Culpa — Andreza Barros">
+  <meta property="og:description" content="Você já sabe fazer terapia. Agora aprenda a cobrar o que vale — sem culpa.">
+  <meta property="og:type" content="website">
+
+  <!-- GTM (substituir GTM-XXXXXXX) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --verde:#1E4D40; --verde-escuro:#143830; --verde-claro:#E8F0EC;
+      --papel:#FBFAF7; --tinta:#1C2321; --tinta-suave:#5A6660; --linha:#D9DFDB;
+      --destaque:#C25E3A;
+      --font-display:'Fraunces', Georgia, serif;
+      --font-body:'Sora', system-ui, sans-serif;
+      --r:14px; --max:680px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none;opacity:1;transform:none}}
+    body{font-family:var(--font-body);font-size:1.0625rem;line-height:1.7;color:var(--tinta);background:var(--papel);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
+    .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px}
+    section{padding:52px 0}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.2;color:var(--tinta)}
+    h2{font-size:1.55rem;margin-bottom:18px}
+    .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--verde);margin-bottom:12px}
+    p{margin-bottom:16px}
+    strong{font-weight:600}
+    .muted{color:var(--tinta-suave)}
+    .center{text-align:center}
+
+    .cta{display:inline-block;background:var(--verde);color:#fff;font-family:var(--font-body);font-weight:700;font-size:1.08rem;padding:19px 30px;border:none;border-radius:999px;cursor:pointer;text-decoration:none;text-align:center;transition:background .2s, transform .12s;box-shadow:0 8px 20px rgba(30,77,64,.24);width:100%}
+    .cta:hover{background:var(--verde-escuro);transform:translateY(-1px)}
+    .cta:focus-visible{outline:3px solid var(--destaque);outline-offset:3px}
+    .cta-note{font-size:.85rem;color:var(--tinta-suave);margin-top:10px;text-align:center}
+    .cta-preco{font-size:.82rem;color:#DCE8E2;margin-top:2px}
+
+    /* faixa pré-headline */
+    .faixa{background:var(--verde-escuro);color:#fff;text-align:center;font-size:.82rem;font-weight:600;padding:10px 16px;letter-spacing:.02em}
+
+    /* HERO */
+    .hero{padding:48px 0 40px}
+    .hero .eyebrow{text-align:center}
+    .hero h1{font-size:clamp(1.65rem,5.2vw,2.35rem);font-weight:600;text-align:center;margin-bottom:18px}
+    .hero h1 em{font-style:italic;color:var(--verde)}
+    .hero .sub{font-size:1.08rem;color:var(--tinta-suave);text-align:center;max-width:560px;margin:0 auto 30px}
+    .hero-visual{background:#fff;border:1px solid var(--linha);border-radius:18px;padding:26px;margin:0 auto 30px;max-width:420px;box-shadow:0 14px 36px rgba(30,77,64,.1)}
+    .hero-visual-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--linha)}
+    .hero-visual-row:last-child{border-bottom:none}
+    .hero-visual-icon{width:36px;height:36px;border-radius:50%;background:var(--verde-claro);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--verde);font-weight:700;font-family:var(--font-display)}
+    .hero-visual-text b{display:block;font-size:.92rem}
+    .hero-visual-text span{font-size:.8rem;color:var(--tinta-suave)}
+    .hero .cta-wrap{max-width:400px;margin:0 auto}
+
+    /* PROBLEMA */
+    .dor-lista{list-style:none;margin:0 0 20px}
+    .dor-lista li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--linha);font-size:.98rem}
+    .dor-lista li:last-child{border-bottom:none}
+    .dor-lista li::before{content:"—";color:var(--verde);font-weight:700;flex-shrink:0}
+
+    /* AGITAÇÃO */
+    .agitacao{background:var(--verde);color:#fff}
+    .agitacao h2{color:#fff}
+    .agitacao p{color:#DCE8E2}
+    .conta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:24px;margin:22px 0}
+    .conta-num{font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:#fff;line-height:1.1}
+    .conta-card span{font-size:.88rem;color:#B9D4C9}
+    .ciclo{font-size:.95rem;color:#DCE8E2;font-style:italic;margin-top:18px}
+
+    /* SOLUÇÃO */
+    .entrega-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--linha)}
+    .entrega-item:last-child{border-bottom:none}
+    .entrega-check{color:var(--verde);font-weight:700;font-size:1.05rem;flex-shrink:0;margin-top:2px}
+    .entrega-item b{display:block;margin-bottom:2px;font-size:.99rem}
+    .entrega-item p{margin:0;font-size:.92rem;color:var(--tinta-suave)}
+
+    /* DEPOIMENTO */
+    .depo{background:#fff;border:1px solid var(--linha);border-left:4px solid var(--verde);border-radius:var(--r);padding:26px 24px;margin:22px 0}
+    .depo blockquote{font-family:var(--font-display);font-size:1.1rem;font-style:italic;line-height:1.55;margin-bottom:16px}
+    .depo-autor{display:flex;align-items:center;gap:12px}
+    .depo-foto{width:46px;height:46px;border-radius:50%;background:var(--verde-claro);object-fit:cover;flex-shrink:0}
+    .depo-autor b{display:block;font-size:.95rem}
+    .depo-autor span{font-size:.82rem;color:var(--tinta-suave)}
+    .depo-resultado{margin-top:14px;padding-top:14px;border-top:1px dashed var(--linha);font-size:.92rem}
+    .depo-resultado b{color:var(--verde)}
+    .disclaimer{font-size:.78rem;color:var(--tinta-suave);margin-top:8px}
+
+    /* PREÇO */
+    .oferta{background:var(--verde-claro)}
+    .oferta-card{background:#fff;border:1px solid var(--linha);border-radius:20px;padding:32px 26px;box-shadow:0 14px 36px rgba(30,77,64,.1);text-align:center}
+    .preco-antigo{font-size:1rem;color:var(--tinta-suave);text-decoration:line-through}
+    .preco{font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--verde);line-height:1.1;margin:6px 0}
+    .preco small{font-size:.95rem;font-family:var(--font-body);font-weight:500;color:var(--tinta-suave)}
+    .urgencia{display:inline-flex;align-items:center;gap:8px;background:#FDF1EB;border:1px solid #F0CDBB;color:var(--destaque);font-size:.82rem;font-weight:600;padding:7px 16px;border-radius:999px;margin-bottom:18px}
+    .urgencia i{width:7px;height:7px;border-radius:50%;background:var(--destaque);display:inline-block}
+    .garantia{display:flex;align-items:center;gap:12px;background:var(--verde-claro);border-radius:var(--r);padding:16px 18px;margin-top:20px;text-align:left}
+    .garantia-selo{width:40px;height:40px;border-radius:50%;background:var(--verde);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--font-display);flex-shrink:0}
+    .garantia b{display:block;font-size:.92rem}
+    .garantia span{font-size:.85rem;color:var(--tinta-suave)}
+
+    /* ORDER BUMP (preview) */
+    .bump{border:2px dashed var(--destaque);background:#FFFCF7;border-radius:var(--r);padding:22px 20px;margin-top:26px;text-align:left}
+    .bump-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+    .bump-checkbox{width:20px;height:20px;border:2px solid var(--destaque);border-radius:5px;flex-shrink:0;margin-top:2px}
+    .bump b{font-size:.98rem}
+    .bump ul{list-style:none;margin:12px 0 0;padding-left:30px}
+    .bump li{font-size:.9rem;padding:5px 0;color:var(--tinta)}
+    .bump li b{color:var(--verde)}
+
+    /* SOBRE */
+    .sobre{display:grid;gap:22px;align-items:center}
+    .sobre-foto{width:110px;height:110px;border-radius:50%;background:var(--verde-claro);object-fit:cover;margin:0 auto;border:4px solid #fff;box-shadow:0 8px 20px rgba(30,77,64,.14)}
+
+    /* FAQ */
+    details{background:#fff;border:1px solid var(--linha);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+    summary{padding:16px 20px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.97rem}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";font-family:var(--font-display);font-size:1.3rem;color:var(--verde);transition:transform .2s}
+    details[open] summary::after{transform:rotate(45deg)}
+    details p{padding:0 20px 18px;margin:0;font-size:.93rem;color:var(--tinta-suave)}
+
+    footer{padding:32px 0 100px;border-top:1px solid var(--linha)}
+    footer p{font-size:.8rem;color:var(--tinta-suave);text-align:center;margin-bottom:6px}
+
+    .sticky{display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(251,250,247,.96);backdrop-filter:blur(10px);border-top:1px solid var(--linha);z-index:999}
+    .sticky .cta{padding:14px;font-size:.95rem;box-shadow:none}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.on{opacity:1;transform:none}
+
+    @media(min-width:640px){
+      .cta{width:auto;min-width:320px}
+      .sobre{grid-template-columns:130px 1fr}
+      .sobre-foto{margin:0}
+    }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="faixa">Oferta exclusiva para quem acabou de baixar a Calculadora — disponível só nesta página</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Precificação Sem Culpa · Andreza Barros</p>
+      <h1>Você já sabe quanto sua sessão <em>deveria</em> custar.<br>Agora aprenda a cobrar isso — sem culpa.</h1>
+      <p class="sub">O passo a passo para definir, comunicar e sustentar o valor justo da sua sessão. Sem perder pacientes. Sem se sentir "mercenária".</p>
+
+      <div class="hero-visual">
+        <div class="hero-visual-row"><div class="hero-visual-icon">1</div><div class="hero-visual-text"><b>Guia em PDF — 5 passos</b><span>Da crença ao script de reajuste</span></div></div>
+        <div class="hero-visual-row"><div class="hero-visual-icon">2</div><div class="hero-visual-text"><b>Planilha Avançada</b><span>Piso técnico, simulador, projeção</span></div></div>
+        <div class="hero-visual-row"><div class="hero-visual-icon">3</div><div class="hero-visual-text"><b>Aula "A Crença Por Trás do Preço"</b><span>40 minutos</span></div></div>
+      </div>
+
+      <div class="cta-wrap center">
+        <a class="cta" href="[LINK-CHECKOUT]" data-evento="compra_tripwire">Quero precificar sem culpa</a>
+        <p class="cta-note">De <s>R$97</s> por R$47 · acesso imediato</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="reveal">
+    <div class="container">
+      <p class="eyebrow">Isso te parece familiar?</p>
+      <h2>Você já sabe fazer terapia. Ninguém precisa te ensinar a atender.</h2>
+      <p class="muted">Mas na hora de falar o seu valor, acontece isso:</p>
+
+      <ul class="dor-lista">
+        <li>Você fala o preço quase pedindo desculpas — e às vezes já oferece desconto antes de o paciente pedir</li>
+        <li>Você não reajusta há mais de um ano porque tem medo de perder quem já atende</li>
+        <li>Você olha colegas cobrando o dobro e pensa: <em>"quem sou eu para cobrar isso?"</em></li>
+        <li>No fim do mês, a agenda está cheia — e a conta bancária, não</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AGITAÇÃO -->
+  <section class="agitacao reveal">
+    <div class="container">
+      <p class="eyebrow" style="color:#9CC5B4">Faça a conta com a gente</p>
+      <h2>O que o preço errado custa por mês</h2>
+
+      <div class="conta-card">
+        <div class="conta-num">R$4.000/mês</div>
+        <span>ficam na mesa se você atende 20 sessões/semana cobrando R$50 a menos do que deveria</span>
+      </div>
+      <p>Em um ano, isso são <strong>R$48.000</strong> — o suficiente para uma pós, uma reserva de emergência, ou simplesmente trabalhar menos.</p>
+      <p class="ciclo">E o pior não é o dinheiro. É o ciclo: preço baixo → agenda lotada para pagar as contas → cansaço → sem energia para estudar, divulgar ou crescer → presa no mesmo faturamento.</p>
+      <p style="margin-bottom:0">O nome disso é <strong>teto de vidro</strong>. E ele não se rompe com mais esforço — se rompe com preço certo e segurança para sustentá-lo.</p>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="reveal">
+    <div class="container">
+      <p class="eyebrow">A solução</p>
+      <h2>Precificação Sem Culpa</h2>
+      <p class="muted">O método completo para reposicionar o preço da sua sessão em 7 dias — criado por psicóloga, para psicólogos.</p>
+
+      <div class="entrega-item"><span class="entrega-check">✓</span><div><b>Guia Precificação Sem Culpa (PDF) — método em 5 passos</b><p>Da crença que trava o preço ao custo real da sua hora clínica, posicionamento de mercado e o script pronto de reajuste.</p></div></div>
+      <div class="entrega-item"><span class="entrega-check">✓</span><div><b>Planilha Avançada de Precificação</b><p>Vai além da calculadora gratuita: simula cenários (menos sessões por preço maior), inclui custos invisíveis e projeta seu caminho até os 5 dígitos.</p></div></div>
+      <div class="entrega-item"><span class="entrega-check">✓</span><div><b>Aula "A Crença Por Trás do Preço" (40 min)</b><p>Por que você se desvaloriza, de onde vem o "ninguém paga caro por psicologia" e como sustentar o novo valor sem gaguejar.</p></div></div>
+      <div class="entrega-item"><span class="entrega-check">✓</span><div><b>Script de comunicação de reajuste</b><p>O texto pronto — e ético — para comunicar aumento aos pacientes atuais sem perder o vínculo.</p></div></div>
+    </div>
+  </section>
+
+  <!-- PROVA -->
+  <section class="reveal" style="padding-top:0">
+    <div class="container">
+      <p class="eyebrow">Quem já aplicou</p>
+      <h2>"Teve meses que até dobrei a meta."</h2>
+
+      <div class="depo">
+        <blockquote>"Saí de empregos que eu considerava inferiores à minha capacidade técnica e hoje alcancei a meta que colocamos lá no início — teve meses que até dobrei. Seu trabalho foi essencial e fez total diferença para essa virada de chave na minha vida profissional."</blockquote>
+        <div class="depo-autor">
+          <img class="depo-foto" src="[FOTO-SUSY]" alt="Foto de Susy Morais" width="46" height="46" loading="lazy">
+          <div><b>Susy Morais</b><span>Psicóloga · Avaliação psicológica</span></div>
+        </div>
+        <div class="depo-resultado">Susy faturava <b>R$2.000/mês</b> quando entrou na mentoria. Em 5 meses, estruturou a clínica de avaliações e chegou a meses de <b>R$20.000</b>.</div>
+      </div>
+
+      <!-- [DEPOIMENTO 2 — mentorada de R$10K: inserir quando chegar] -->
+
+      <p class="disclaimer">Resultados individuais variam conforme especialidade, dedicação e implementação.</p>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section class="oferta reveal" id="oferta">
+    <div class="container">
+      <div class="oferta-card">
+        <span class="urgencia"><i></i>Esta condição só existe nesta página</span>
+        <p class="preco-antigo">De R$97</p>
+        <p class="preco">R$47</p>
+        <p class="muted" style="font-size:.9rem;margin-bottom:22px">acesso imediato · em até 5x de R$9,88</p>
+
+        <a class="cta" href="[LINK-CHECKOUT]" data-evento="compra_tripwire">Quero precificar sem culpa</a>
+
+        <div class="garantia">
+          <div class="garantia-selo">7d</div>
+          <div><b>Garantia incondicional de 7 dias</b><span>Se você aplicar e sentir que não valeu, devolvemos 100%. Sem perguntas.</span></div>
+        </div>
+
+        <div class="bump">
+          <div class="bump-check">
+            <div class="bump-checkbox"></div>
+            <div><b>SIM! Quero adicionar o Kit Clínica Organizada por apenas +R$47</b></div>
+          </div>
+          <p class="muted" style="font-size:.88rem;margin-bottom:0">Sua clínica profissional no papel — 7 documentos prontos e editáveis:</p>
+          <ul>
+            <li>Contrato terapêutico</li>
+            <li>Termo de consentimento informado</li>
+            <li>Política de faltas e cancelamento</li>
+            <li>Modelo de recibo</li>
+            <li><b>Declaração de comparecimento</b> — conforme Resolução CFP nº 06/2019</li>
+            <li><b>Atestado psicológico</b> — conforme Resolução CFP nº 06/2019</li>
+            <li><b>Pack de Scripts de WhatsApp</b> — para parar de perder paciente na caixa de mensagens</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="reveal">
+    <div class="container">
+      <div class="sobre">
+        <img class="sobre-foto" src="[FOTO-ANDREZA]" alt="Andreza Barros, psicóloga e mentora" width="110" height="110" loading="lazy">
+        <div>
+          <p class="eyebrow">Quem criou</p>
+          <p style="margin-bottom:6px"><strong>Andreza Barros</strong>, psicóloga clínica há mais de 10 anos, mentora de psicólogos que saíram de R$2–5K para meses de R$10K e R$20K.</p>
+          <p class="muted" style="font-size:.88rem;margin-bottom:0">@psiandrezabarros_</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="reveal" style="padding-top:0">
+    <div class="container">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2>Antes de decidir</h2>
+
+      <details><summary>Isso serve para quem atende online?</summary><p>Sim. O método de precificação e todos os documentos funcionam para atendimento online, presencial ou híbrido.</p></details>
+      <details><summary>Vou perder pacientes se aumentar meu preço?</summary><p>A aula e o script de reajuste tratam exatamente disso: como comunicar o novo valor preservando o vínculo. Alguma rotatividade pode acontecer — e a planilha te mostra por que, na maioria dos cenários, você fatura mais mesmo com leve redução de agenda.</p></details>
+      <details><summary>Em quanto tempo recebo o acesso?</summary><p>Imediatamente após a confirmação do pagamento, no seu e-mail.</p></details>
+      <details><summary>E se não for para mim?</summary><p>Garantia de 7 dias, devolução integral, sem perguntas.</p></details>
+    </div>
+  </section>
+
+  <!-- CTA FINAL / PS -->
+  <section class="reveal" style="padding-top:0">
+    <div class="container center">
+      <p class="muted" style="max-width:480px;margin:0 auto 26px">Você já sabe o número — a calculadora te mostrou. A diferença entre saber e cobrar é o que o Precificação Sem Culpa resolve.</p>
+      <a class="cta" href="[LINK-CHECKOUT]" data-evento="compra_tripwire">Quero precificar sem culpa — R$47</a>
+      <p class="cta-note">Esta condição só existe nesta página</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Precificação Sem Culpa · Andreza Barros — CRP 17/3631</p>
+    <p>Resultados individuais variam. Este material é de desenvolvimento profissional e de negócios.</p>
+    <p><a href="[LINK-POLITICA-PRIVACIDADE]" style="color:var(--tinta-suave)">Política de privacidade</a> · <a href="[LINK-TERMOS]" style="color:var(--tinta-suave)">Termos</a></p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <a class="cta" href="[LINK-CHECKOUT]" data-evento="compra_tripwire">Quero precificar sem culpa — R$47</a>
+</div>
+
+<script>
+  const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  const hero=document.querySelector('.hero'), sticky=document.getElementById('sticky');
+  if(window.innerWidth<640){
+    const hObs=new IntersectionObserver(([e])=>{sticky.style.display=e.isIntersecting?'none':'block'},{threshold:0});
+    hObs.observe(hero);
+  }
+
+  document.querySelectorAll('[data-evento="compra_tripwire"]').forEach(a=>a.addEventListener('click',()=>{
+    if(typeof dataLayer!=='undefined')dataLayer.push({event:'begin_checkout',item_name:'Precificação Sem Culpa',value:47});
+    if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{content_name:'Precificação Sem Culpa',value:47,currency:'BRL'});
+  }));
+</script>
+</body>
+</html>

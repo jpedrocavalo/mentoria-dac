@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora da Sessão Justa — Andreza Barros</title>
+  <meta name="description" content="Descubra em 5 minutos quanto sua sessão de psicologia deveria custar. Planilha gratuita + mini-aula.">
+  <meta property="og:title" content="Calculadora da Sessão Justa">
+  <meta property="og:description" content="Quanto sua sessão deveria custar? Descubra gratuitamente em 5 minutos.">
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --verde:#1E4D40; --verde-escuro:#143830; --verde-claro:#E8F0EC;
+      --papel:#FBFAF7; --tinta:#1C2321; --tinta-suave:#5A6660; --linha:#D9DFDB;
+      --destaque:#C25E3A;
+      --font-display:'Fraunces', Georgia, serif;
+      --font-body:'Sora', system-ui, sans-serif;
+      --r:14px; --max:480px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);font-size:1.0625rem;line-height:1.65;color:var(--tinta);background:var(--papel);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+    img{max-width:100%;height:auto;display:block}
+    .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px}
+    h1,h2{font-family:var(--font-display);line-height:1.2;color:var(--tinta)}
+    .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--verde);margin-bottom:12px}
+    p{margin-bottom:16px}
+    strong{font-weight:600}
+    .muted{color:var(--tinta-suave)}
+    .center{text-align:center}
+
+    main{flex:1;display:flex;align-items:center;padding:48px 0}
+    .card{background:#fff;border:1px solid var(--linha);border-radius:22px;padding:38px 28px;box-shadow:0 20px 50px rgba(30,77,64,.12)}
+
+    .icone-central{width:64px;height:64px;border-radius:50%;background:var(--verde-claro);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--verde)}
+
+    h1{font-size:clamp(1.4rem,5.4vw,1.75rem);font-weight:600;text-align:center;margin-bottom:14px}
+    h1 em{font-style:italic;color:var(--verde)}
+    .sub{font-size:1rem;color:var(--tinta-suave);text-align:center;margin-bottom:28px}
+
+    .beneficios{list-style:none;margin:0 0 28px}
+    .beneficios li{display:flex;gap:10px;font-size:.92rem;padding:8px 0;align-items:flex-start}
+    .beneficios li::before{content:"✓";color:var(--verde);font-weight:700;flex-shrink:0}
+
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:.82rem;font-weight:600;color:var(--tinta);margin-bottom:-6px}
+    input{font-family:var(--font-body);font-size:1rem;padding:14px 16px;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta);outline:none;transition:border-color .15s}
+    input:focus{border-color:var(--verde)}
+
+    .cta{display:inline-block;background:var(--verde);color:#fff;font-family:var(--font-body);font-weight:700;font-size:1.05rem;padding:17px 24px;border:none;border-radius:999px;cursor:pointer;text-align:center;transition:background .2s, transform .12s;box-shadow:0 8px 20px rgba(30,77,64,.24);margin-top:6px}
+    .cta:hover{background:var(--verde-escuro);transform:translateY(-1px)}
+    .cta:focus-visible{outline:3px solid var(--destaque);outline-offset:3px}
+
+    .rodape-marca{text-align:center;padding:24px 0;font-size:.82rem;color:var(--tinta-suave)}
+    .rodape-marca strong{color:var(--verde)}
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<main>
+  <div class="container">
+    <div class="card">
+      <div class="icone-central">R$</div>
+      <p class="eyebrow center" style="text-align:center">Gratuito · 5 minutos</p>
+      <h1>Quanto sua sessão <em>deveria</em> custar?</h1>
+      <p class="sub">Baixe a Calculadora da Sessão Justa e descubra o valor mínimo da sua sessão — com planilha pronta e uma mini-aula explicando cada passo.</p>
+
+      <ul class="beneficios">
+        <li>Planilha simples: só preencher e ver o resultado</li>
+        <li>Mini-aula de 15 minutos explicando a lógica por trás do número</li>
+        <li>Criado por psicóloga, para psicólogos</li>
+      </ul>
+
+      <form id="form-captura" action="[ENDPOINT-DO-FORMULARIO]" method="POST">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Como posso te chamar?" required autocomplete="name">
+
+        <label for="email">Seu melhor e-mail</label>
+        <input type="email" id="email" name="email" placeholder="voce@email.com" required autocomplete="email">
+
+        <button type="submit" class="cta" data-evento="lead_calculadora">Quero minha calculadora grátis</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<div class="rodape-marca">
+  <p><strong>Andreza Barros</strong> · Psicóloga e Mentora · Método DAC</p>
+</div>
+
+<script>
+  document.getElementById('form-captura').addEventListener('submit', function(){
+    if(typeof dataLayer!=='undefined')dataLayer.push({event:'generate_lead',lead_source:'calculadora_sessao_justa'});
+    if(typeof fbq!=='undefined')fbq('track','Lead',{content_name:'Calculadora da Sessão Justa'});
+    // Redirecionar após envio para a página do tripwire "Precificação Sem Culpa" ou página de obrigado com o link de download
+  });
+</script>
+</body>
+</html>
