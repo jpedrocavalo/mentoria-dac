@@ -81,7 +81,7 @@
         <li>Criado por psicóloga, para psicólogos</li>
       </ul>
 
-      <form id="form-captura" action="[ENDPOINT-DO-FORMULARIO]" method="POST">
+      <form id="form-captura">
         <label for="nome">Seu nome</label>
         <input type="text" id="nome" name="nome" placeholder="Como posso te chamar?" required autocomplete="name">
 
@@ -99,10 +99,39 @@
 </div>
 
 <script>
-  document.getElementById('form-captura').addEventListener('submit', function(){
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwCTsihMhZoLCNNoM-6NnFNsazEcK3hsWMsmwQfLKn607nxroJ3eECMWhmVTqbUFeMx/exec';
+  const PROXIMA_PAGINA = 'https://semculpa.andrezabarros.com.br';
+
+  document.getElementById('form-captura').addEventListener('submit', function(e){
+    e.preventDefault();
+    const botao = e.target.querySelector('button[type="submit"]');
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+
+    botao.disabled = true;
+    botao.textContent = 'Enviando...';
+
     if(typeof dataLayer!=='undefined')dataLayer.push({event:'generate_lead',lead_source:'calculadora_sessao_justa'});
     if(typeof fbq!=='undefined')fbq('track','Lead',{content_name:'Calculadora da Sessão Justa'});
-    // Redirecionar após envio para a página do tripwire "Precificação Sem Culpa" ou página de obrigado com o link de download
+
+    let redirecionado = false;
+    function irParaProximaPagina(){
+      if(redirecionado) return;
+      redirecionado = true;
+      window.location.href = PROXIMA_PAGINA;
+    }
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ nome: nome, email: email })
+    })
+    .catch(function(err){ console.error('Falha ao enviar para a planilha:', err); })
+    .finally(irParaProximaPagina);
+
+    // Não deixa o usuário travado na página caso o fetch demore ou trave por algum motivo
+    setTimeout(irParaProximaPagina, 3000);
   });
 </script>
 </body>
