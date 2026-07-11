@@ -23,7 +23,7 @@
   <style>
     :root{
       --verde:#1E4D40; --verde-escuro:#143830; --verde-claro:#E8F0EC;
-      --papel:#FBFAF7; --tinta:#1C2321; --tinta-suave:#5A6660; --linha:#D9DFDB;
+      --papel:#1E4D40; --tinta:#FFFFFF; --tinta-suave:#DCE8E2; --tinta-escura:#1C2321; --tinta-suave-escura:#5A6660; --linha:rgba(255,255,255,.2); --linha-escura:#D9DFDB;
       --destaque:#C25E3A;
       --font-display:'Fraunces', Georgia, serif;
       --font-body:'Sora', system-ui, sans-serif;
@@ -38,7 +38,7 @@
     section{padding:52px 0}
     h1,h2,h3{font-family:var(--font-display);line-height:1.2;color:var(--tinta)}
     h2{font-size:1.55rem;margin-bottom:18px}
-    .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--verde);margin-bottom:12px}
+    .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#9CC5B4;margin-bottom:12px}
     p{margin-bottom:16px}
     strong{font-weight:600}
     .muted{color:var(--tinta-suave)}
@@ -47,6 +47,8 @@
     .cta{display:inline-block;background:var(--verde);color:#fff;font-family:var(--font-body);font-weight:700;font-size:1.08rem;padding:19px 30px;border:none;border-radius:999px;cursor:pointer;text-decoration:none;text-align:center;transition:background .2s, transform .12s;box-shadow:0 8px 20px rgba(30,77,64,.24);width:100%}
     .cta:hover{background:var(--verde-escuro);transform:translateY(-1px)}
     .cta:focus-visible{outline:3px solid var(--destaque);outline-offset:3px}
+    .cta-branco{background:#fff;color:var(--verde)}
+    .cta-branco:hover{background:#F0EEE8}
     .cta-note{font-size:.85rem;color:var(--tinta-suave);margin-top:10px;text-align:center}
     .cta-preco{font-size:.82rem;color:#DCE8E2;margin-top:2px}
 
@@ -57,21 +59,21 @@
     .hero{padding:48px 0 40px}
     .hero .eyebrow{text-align:center}
     .hero h1{font-size:clamp(1.65rem,5.2vw,2.35rem);font-weight:600;text-align:center;margin-bottom:18px}
-    .hero h1 em{font-style:italic;color:var(--verde)}
+    .hero h1 em{font-style:italic;color:#9CC5B4}
     .hero .sub{font-size:1.08rem;color:var(--tinta-suave);text-align:center;max-width:560px;margin:0 auto 30px}
-    .hero-visual{background:#fff;border:1px solid var(--linha);border-radius:18px;padding:26px;margin:0 auto 30px;max-width:420px;box-shadow:0 14px 36px rgba(30,77,64,.1)}
-    .hero-visual-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--linha)}
+    .hero-visual{background:#fff;border:1px solid var(--linha-escura);border-radius:18px;padding:26px;margin:0 auto 30px;max-width:420px;box-shadow:0 14px 36px rgba(30,77,64,.1);color:var(--tinta-escura)}
+    .hero-visual-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--linha-escura)}
     .hero-visual-row:last-child{border-bottom:none}
     .hero-visual-icon{width:36px;height:36px;border-radius:50%;background:var(--verde-claro);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--verde);font-weight:700;font-family:var(--font-display)}
     .hero-visual-text b{display:block;font-size:.92rem}
-    .hero-visual-text span{font-size:.8rem;color:var(--tinta-suave)}
+    .hero-visual-text span{font-size:.8rem;color:var(--tinta-suave-escura)}
     .hero .cta-wrap{max-width:400px;margin:0 auto}
 
     /* PROBLEMA */
     .dor-lista{list-style:none;margin:0 0 20px}
     .dor-lista li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--linha);font-size:.98rem}
     .dor-lista li:last-child{border-bottom:none}
-    .dor-lista li::before{content:"—";color:var(--verde);font-weight:700;flex-shrink:0}
+    .dor-lista li::before{content:"—";color:#fff;font-weight:700;flex-shrink:0}
 
     /* AGITAÇÃO */
     .agitacao{background:var(--verde);color:#fff}
@@ -85,45 +87,46 @@
     /* SOLUÇÃO */
     .entrega-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--linha)}
     .entrega-item:last-child{border-bottom:none}
-    .entrega-check{color:var(--verde);font-weight:700;font-size:1.05rem;flex-shrink:0;margin-top:2px}
+    .entrega-check{color:#fff;font-weight:700;font-size:1.05rem;flex-shrink:0;margin-top:2px}
     .entrega-item b{display:block;margin-bottom:2px;font-size:.99rem}
     .entrega-item p{margin:0;font-size:.92rem;color:var(--tinta-suave)}
 
     /* DEPOIMENTO */
-    .depo{background:#fff;border:1px solid var(--linha);border-left:4px solid var(--verde);border-radius:var(--r);padding:26px 24px;margin:22px 0}
+    .depo{background:#fff;border:1px solid var(--linha-escura);border-left:4px solid var(--verde);border-radius:var(--r);padding:26px 24px;margin:22px 0;color:var(--tinta-escura)}
     .depo blockquote{font-family:var(--font-display);font-size:1.1rem;font-style:italic;line-height:1.55;margin-bottom:16px}
     .depo-autor{display:flex;align-items:center;gap:12px}
     .depo-foto{width:46px;height:46px;border-radius:50%;background:var(--verde-claro);object-fit:cover;flex-shrink:0}
     .depo-autor b{display:block;font-size:.95rem}
-    .depo-autor span{font-size:.82rem;color:var(--tinta-suave)}
-    .depo-resultado{margin-top:14px;padding-top:14px;border-top:1px dashed var(--linha);font-size:.92rem}
+    .depo-autor span{font-size:.82rem;color:var(--tinta-suave-escura)}
+    .depo-resultado{margin-top:14px;padding-top:14px;border-top:1px dashed var(--linha-escura);font-size:.92rem}
     .depo-resultado b{color:var(--verde)}
     .disclaimer{font-size:.78rem;color:var(--tinta-suave);margin-top:8px}
 
     /* PREÇO */
     .oferta{background:var(--verde-claro)}
-    .oferta-card{background:#fff;border:1px solid var(--linha);border-radius:20px;padding:32px 26px;box-shadow:0 14px 36px rgba(30,77,64,.1);text-align:center}
-    .preco-antigo{font-size:1rem;color:var(--tinta-suave);text-decoration:line-through}
+    .oferta-card{background:#fff;border:1px solid var(--linha-escura);border-radius:20px;padding:32px 26px;box-shadow:0 14px 36px rgba(30,77,64,.1);text-align:center;color:var(--tinta-escura)}
+    .oferta-card .muted{color:var(--tinta-suave-escura)}
+    .preco-antigo{font-size:1rem;color:var(--tinta-suave-escura);text-decoration:line-through}
     .preco{font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--verde);line-height:1.1;margin:6px 0}
-    .preco small{font-size:.95rem;font-family:var(--font-body);font-weight:500;color:var(--tinta-suave)}
+    .preco small{font-size:.95rem;font-family:var(--font-body);font-weight:500;color:var(--tinta-suave-escura)}
     .urgencia{display:inline-flex;align-items:center;gap:8px;background:#FDF1EB;border:1px solid #F0CDBB;color:var(--destaque);font-size:.82rem;font-weight:600;padding:7px 16px;border-radius:999px;margin-bottom:18px}
     .urgencia i{width:7px;height:7px;border-radius:50%;background:var(--destaque);display:inline-block}
-    .garantia{display:flex;align-items:center;gap:12px;background:var(--verde-claro);border-radius:var(--r);padding:16px 18px;margin-top:20px;text-align:left}
+    .garantia{display:flex;align-items:center;gap:12px;background:var(--verde-claro);border-radius:var(--r);padding:16px 18px;margin-top:20px;text-align:left;color:var(--tinta-escura)}
     .garantia-selo{width:40px;height:40px;border-radius:50%;background:var(--verde);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--font-display);flex-shrink:0}
     .garantia b{display:block;font-size:.92rem}
-    .garantia span{font-size:.85rem;color:var(--tinta-suave)}
+    .garantia span{font-size:.85rem;color:var(--tinta-suave-escura)}
 
     /* SOBRE */
     .sobre{display:grid;gap:22px;align-items:center}
     .sobre-foto{width:110px;height:110px;border-radius:50%;background:var(--verde-claro);object-fit:cover;margin:0 auto;border:4px solid #fff;box-shadow:0 8px 20px rgba(30,77,64,.14)}
 
     /* FAQ */
-    details{background:#fff;border:1px solid var(--linha);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+    details{background:#fff;border:1px solid var(--linha-escura);border-radius:var(--r);margin-bottom:10px;overflow:hidden;color:var(--tinta-escura)}
     summary{padding:16px 20px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.97rem}
     summary::-webkit-details-marker{display:none}
     summary::after{content:"+";font-family:var(--font-display);font-size:1.3rem;color:var(--verde);transition:transform .2s}
     details[open] summary::after{transform:rotate(45deg)}
-    details p{padding:0 20px 18px;margin:0;font-size:.93rem;color:var(--tinta-suave)}
+    details p{padding:0 20px 18px;margin:0;font-size:.93rem;color:var(--tinta-suave-escura)}
 
     footer{padding:32px 0 100px;border-top:1px solid var(--linha)}
     footer p{font-size:.8rem;color:var(--tinta-suave);text-align:center;margin-bottom:6px}
@@ -162,7 +165,7 @@
       </div>
 
       <div class="cta-wrap center">
-        <a class="cta" href="https://pay.kiwify.com.br/cjM9Kng" data-evento="compra_tripwire">Quero precificar sem culpa</a>
+        <a class="cta cta-branco" href="https://pay.kiwify.com.br/cjM9Kng" data-evento="compra_tripwire">Quero precificar sem culpa</a>
         <p class="cta-note">De <s>R$97</s> por R$47 · acesso imediato</p>
       </div>
     </div>
@@ -286,7 +289,7 @@
   <section class="reveal" style="padding-top:0">
     <div class="container center">
       <p class="muted" style="max-width:480px;margin:0 auto 26px">Você já sabe o número — a calculadora te mostrou. A diferença entre saber e cobrar é o que o Precificação Sem Culpa resolve.</p>
-      <a class="cta" href="https://pay.kiwify.com.br/cjM9Kng" data-evento="compra_tripwire">Quero precificar sem culpa — R$47</a>
+      <a class="cta cta-branco" href="https://pay.kiwify.com.br/cjM9Kng" data-evento="compra_tripwire">Quero precificar sem culpa — R$47</a>
       <p class="cta-note">Esta condição só existe nesta página</p>
     </div>
   </section>
@@ -295,7 +298,7 @@
 
 <footer>
   <div class="container">
-    <p>Descomplicando a Clínica © 2026</p>
+    <p style="color:#fff;font-weight:600">Descomplicando a Clínica © 2026</p>
     <p>Resultados individuais variam. Este material é de desenvolvimento profissional e de negócios.</p>
     <p><a href="https://legal.andrezabarros.com.br/" style="color:var(--tinta-suave)">Política de privacidade</a> · <a href="https://legal.andrezabarros.com.br/termos/" style="color:var(--tinta-suave)">Termos</a></p>
   </div>
