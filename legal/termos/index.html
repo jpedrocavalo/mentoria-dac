@@ -70,7 +70,17 @@
   <h2>10. Contato</h2>
   <p>Dúvidas sobre estes termos? Fale com a gente em <a href="mailto:contato@andrezabarros.com.br">contato@andrezabarros.com.br</a>.</p>
 
-  <a class="voltar" href="https://mentoria.andrezabarros.com.br">&larr; Voltar</a>
+  <a class="voltar" href="https://mentoria.andrezabarros.com.br" id="link-voltar">&larr; Voltar</a>
 </div>
+
+<script>
+  document.getElementById('link-voltar').addEventListener('click', function(e){
+    if (document.referrer && new URL(document.referrer).hostname.endsWith('andrezabarros.com.br')) {
+      e.preventDefault();
+      history.back();
+    }
+    // sem referrer (acesso direto/nova aba): segue o href de fallback normalmente
+  });
+</script>
 </body>
 </html>
