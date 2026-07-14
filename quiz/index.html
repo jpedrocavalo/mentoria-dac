@@ -309,7 +309,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if(typeof fbq!=='undefined')fbq('track','CompleteRegistration',{content_name:'Quiz Diagnóstico Clínica'});
 
     // Envio dos dados — planilha própria do quiz + planilha de Leads + Brevo (via Apps Script)
-    const SUBMIT_URL = '[URL-DO-APPS-SCRIPT-QUIZ]';
+    const SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbzQAu-9-zFBstDxKaGW0s2OdxD-cvvE4osdlzoh-1z1rpGXRcHnl5Isd-Vi2HpGijgg/exec';
     if(SUBMIT_URL && SUBMIT_URL.indexOf('http') === 0){
       fetch(SUBMIT_URL, {
         method: 'POST',
