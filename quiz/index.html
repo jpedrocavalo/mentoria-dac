@@ -99,9 +99,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     align-items:center;justify-content:center;margin-bottom:22px;font-size:1.6rem}
   .resultado-titulo{font-family:var(--font-d);font-size:1.5rem;font-weight:600;margin-bottom:10px;color:var(--tinta)}
   .resultado-texto{font-size:.98rem;color:var(--suave);margin-bottom:22px;line-height:1.6}
-  .resultado-card{background:var(--verde-claro);border-radius:16px;padding:20px 22px;margin-bottom:24px}
-  .resultado-card b{color:var(--verde-escuro);font-size:.95rem;display:block;margin-bottom:4px}
-  .resultado-card span{font-size:.88rem;color:var(--suave)}
   .cta-final{width:100%}
   .nota-final{font-size:.78rem;color:var(--suave);text-align:center;margin-top:14px}
 
@@ -220,14 +217,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- TELA RESULTADO -->
       <div class="tela" data-tela="resultado">
         <div class="resultado-icone">✓</div>
-        <p class="resultado-titulo" id="res-titulo">Seu diagnóstico preliminar</p>
-        <p class="resultado-texto" id="res-texto"></p>
-        <div class="resultado-card">
-          <b id="res-gargalo-titulo">Gargalo identificado</b>
-          <span id="res-gargalo-texto"></span>
-        </div>
-        <a class="btn btn-primario cta-final" id="btn-whatsapp" href="#" target="_blank" rel="noopener" data-evento="quiz_whatsapp">Agendar minha Sessão de Diagnóstico</a>
-        <p class="nota-final">30 minutos, gratuita, com a Andreza Barros — sem compromisso de compra.</p>
+        <p class="resultado-titulo" id="res-titulo">Inscrição confirmada!</p>
+        <p class="resultado-texto" id="res-texto">Você está inscrito(a) na Sessão de Diagnóstico gratuita (30 minutos) com a Andreza Barros. Em breve você recebe um contato pra agendarmos o melhor horário.</p>
+        <p class="nota-final">Resposta enviada. Confira também sua caixa de spam nos próximos dias.</p>
       </div>
 
     </div>
@@ -308,37 +300,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   function gerarResultado(){
-    const textos = {
-      mental: {
-        titulo: 'Gargalo mental',
-        texto: 'O padrão que você descreveu aponta para crenças sobre valor e cobrança travando seu crescimento — antes de qualquer estratégia, isso precisa ser desconstruído.'
-      },
-      estrategico: {
-        titulo: 'Gargalo estratégico',
-        texto: 'Falta de fluxo de captação consistente é um dos pontos que mais prende psicólogas competentes num faturamento instável.'
-      },
-      estrutural: {
-        titulo: 'Gargalo estrutural',
-        texto: 'Sem processos claros (contrato, política de faltas, organização), a clínica fica vulnerável a inadimplência e retrabalho — mesmo com boa demanda.'
-      },
-      financeiro: {
-        titulo: 'Gargalo financeiro',
-        texto: 'Faturar sem saber a própria margem impede decisões seguras de crescimento — gestão financeira clara é o que falta aqui.'
-      }
-    };
-    const g = textos[respostas.gargalo] || textos.mental;
-    const nome = respostas.nome ? respostas.nome.split(' ')[0] : 'Oi';
-
-    document.getElementById('res-titulo').textContent = nome + ', seu diagnóstico preliminar está pronto';
-    document.getElementById('res-texto').textContent = 'Com base no que você compartilhou, aqui está uma primeira leitura — o mapeamento completo acontece na sessão ao vivo.';
-    document.getElementById('res-gargalo-titulo').textContent = g.titulo;
-    document.getElementById('res-gargalo-texto').textContent = g.texto;
-
-    const msg = 'Oi Andreza! Fiz o diagnóstico preliminar no site. Meu nome é ' + (respostas.nome || '') +
-      '. Tempo de formação: ' + (respostas.tempo_formacao || '-') +
-      '. Faturamento: ' + (respostas.faturamento || '-') +
-      '. Gargalo identificado: ' + g.titulo + '.';
-    document.getElementById('btn-whatsapp').href = 'https://wa.me/5584987619997?text=' + encodeURIComponent(msg);
+    const nome = respostas.nome ? respostas.nome.split(' ')[0] : '';
+    if(nome){
+      document.getElementById('res-texto').textContent = nome + ', você está inscrito(a) na Sessão de Diagnóstico gratuita (30 minutos) com a Andreza Barros. Em breve você recebe um contato pra agendarmos o melhor horário.';
+    }
 
     if(typeof dataLayer!=='undefined')dataLayer.push({event:'quiz_completed',gargalo:respostas.gargalo});
     if(typeof fbq!=='undefined')fbq('track','CompleteRegistration',{content_name:'Quiz Diagnóstico Clínica'});
@@ -378,10 +343,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       atual--;
       mostrar(atual);
     }
-  });
-
-  document.getElementById('btn-whatsapp').addEventListener('click', function(){
-    if(typeof dataLayer!=='undefined')dataLayer.push({event:'upsell_click',item_name:'Sessão de diagnóstico'});
   });
 
   mostrar(atual);
