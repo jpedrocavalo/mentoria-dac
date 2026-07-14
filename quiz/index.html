@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico da Clínica — Andreza Barros</title>
+<meta name="description" content="Responda 8 perguntas rápidas e descubra o principal gargalo da sua clínica hoje.">
+<meta property="og:title" content="Diagnóstico da Clínica — Andreza Barros">
+<meta property="og:description" content="Responda 8 perguntas rápidas e descubra o principal gargalo da sua clínica hoje.">
+<meta property="og:type" content="website">
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KX4MKC2H');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#1E4D40; --verde-escuro:#143830; --verde-claro:#E8F0EC;
+    --papel:#FBFAF7; --tinta:#1C2321; --suave:#5A6660; --linha:#D9DFDB;
+    --ambar:#C25E3A;
+    --font-d:'Fraunces',Georgia,serif; --font-b:'Sora',system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--font-b);background:var(--verde-escuro);color:var(--tinta);
+       display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;
+       -webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  /* fundo com textura sutil de "teto de vidro" */
+  body::before{content:"";position:fixed;inset:0;z-index:0;
+    background:
+      linear-gradient(160deg, var(--verde-escuro) 0%, var(--verde) 55%, var(--verde-escuro) 100%);
+  }
+  body::after{content:"";position:fixed;top:8%;left:50%;width:1px;height:120px;
+    background:linear-gradient(var(--verde-claro),transparent);opacity:.25;transform:translateX(-160px) rotate(-8deg)}
+
+  .stage{position:relative;z-index:1;width:100%;max-width:560px}
+
+  .panel{background:var(--papel);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.35);
+         overflow:hidden;min-height:560px;display:flex;flex-direction:column}
+
+  /* topo: marca + progresso */
+  .topo{padding:28px 32px 18px;border-bottom:1px solid var(--linha)}
+  .marca{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .marca-icone{width:28px;height:28px;border-radius:50%;background:var(--verde);position:relative;flex-shrink:0}
+  .marca-icone::after{content:"";position:absolute;left:6px;top:13px;width:16px;height:2px;background:var(--papel);border-radius:2px}
+  .marca-nome{font-family:var(--font-d);font-size:.95rem;font-weight:600;color:var(--verde)}
+  .barra-fundo{height:5px;background:var(--verde-claro);border-radius:999px;overflow:hidden}
+  .barra-preenchida{height:100%;background:var(--verde);border-radius:999px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
+  .contador{font-size:.75rem;color:var(--suave);margin-top:8px;letter-spacing:.04em}
+
+  /* corpo das perguntas */
+  .corpo{flex:1;padding:36px 32px;display:flex;flex-direction:column}
+  .tela{display:none;flex-direction:column;flex:1;animation:entra .45s ease both}
+  .tela.ativa{display:flex}
+  @keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  @media (prefers-reduced-motion:reduce){.tela{animation:none}}
+
+  .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ambar);margin-bottom:10px}
+  .pergunta{font-family:var(--font-d);font-size:1.5rem;font-weight:600;line-height:1.3;margin-bottom:8px;color:var(--tinta)}
+  .ajuda{font-size:.9rem;color:var(--suave);margin-bottom:26px}
+
+  .opcoes{display:flex;flex-direction:column;gap:10px;margin-bottom:auto}
+  .opcao{position:relative}
+  .opcao input{position:absolute;opacity:0;pointer-events:none}
+  .opcao label{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1.5px solid var(--linha);
+               border-radius:14px;cursor:pointer;font-size:.95rem;color:var(--tinta);transition:border-color .15s,background .15s;background:#fff}
+  .opcao label:hover{border-color:var(--verde)}
+  .opcao input:checked + label{border-color:var(--verde);background:var(--verde-claro);font-weight:600}
+  .radio-visual{width:20px;height:20px;border-radius:50%;border:2px solid var(--linha);flex-shrink:0;position:relative;transition:border-color .15s}
+  .opcao input:checked + label .radio-visual{border-color:var(--verde)}
+  .opcao input:checked + label .radio-visual::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--verde)}
+
+  .campo-texto{width:100%;font-family:var(--font-b);font-size:1rem;padding:16px 18px;border:1.5px solid var(--linha);
+               border-radius:14px;background:#fff;color:var(--tinta);outline:none;resize:vertical;min-height:110px;transition:border-color .15s}
+  .campo-texto:focus, .campo-linha:focus{border-color:var(--verde)}
+  .campo-linha{width:100%;font-family:var(--font-b);font-size:1rem;padding:16px 18px;border:1.5px solid var(--linha);
+               border-radius:14px;background:#fff;color:var(--tinta);outline:none;transition:border-color .15s;margin-bottom:14px}
+
+  /* rodapé nav */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-top:1px solid var(--linha)}
+  .btn{font-family:var(--font-b);font-weight:600;font-size:.95rem;border:none;cursor:pointer;border-radius:999px;
+       padding:14px 26px;transition:transform .12s,background .15s}
+  .btn:active{transform:scale(.97)}
+  .btn-primario{background:var(--verde);color:#fff;box-shadow:0 8px 20px rgba(30,77,64,.25)}
+  .btn-primario:hover{background:var(--verde-escuro)}
+  .btn-primario:disabled{background:var(--linha);color:var(--suave);cursor:not-allowed;box-shadow:none}
+  .btn-voltar{background:none;color:var(--suave);padding:14px 8px}
+  .btn-voltar:hover{color:var(--tinta)}
+  .btn-voltar:disabled{opacity:0;pointer-events:none}
+
+  /* tela de resultado */
+  .resultado-icone{width:64px;height:64px;border-radius:50%;background:var(--verde-claro);display:flex;
+                    align-items:center;justify-content:center;margin-bottom:22px;font-size:1.6rem}
+  .resultado-titulo{font-family:var(--font-d);font-size:1.5rem;font-weight:600;margin-bottom:10px;color:var(--tinta)}
+  .resultado-texto{font-size:.98rem;color:var(--suave);margin-bottom:22px;line-height:1.6}
+  .resultado-card{background:var(--verde-claro);border-radius:16px;padding:20px 22px;margin-bottom:24px}
+  .resultado-card b{color:var(--verde-escuro);font-size:.95rem;display:block;margin-bottom:4px}
+  .resultado-card span{font-size:.88rem;color:var(--suave)}
+  .cta-final{width:100%}
+  .nota-final{font-size:.78rem;color:var(--suave);text-align:center;margin-top:14px}
+
+  @media(max-width:480px){
+    .corpo{padding:28px 22px}
+    .topo{padding:22px 22px 16px}
+    .nav{padding:18px 22px}
+    .pergunta{font-size:1.28rem}
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX4MKC2H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="stage">
+  <div class="panel">
+
+    <div class="topo">
+      <div class="marca">
+        <div class="marca-icone"></div>
+        <span class="marca-nome">Descomplicando a Clínica</span>
+      </div>
+      <div class="barra-fundo"><div class="barra-preenchida" id="barra"></div></div>
+      <div class="contador" id="contador">Pergunta 1 de 8</div>
+    </div>
+
+    <div class="corpo" id="corpo">
+
+      <!-- TELA 1 -->
+      <div class="tela ativa" data-tela="1">
+        <p class="eyebrow">Vamos começar</p>
+        <p class="pergunta">Qual é o seu nome?</p>
+        <p class="ajuda">E seu melhor e-mail — é por ele que eu te aviso sobre sua sessão de diagnóstico.</p>
+        <input class="campo-linha" type="text" id="q1_nome" placeholder="Seu nome">
+        <input class="campo-linha" type="email" id="q1_email" placeholder="Seu melhor e-mail">
+        <input class="campo-linha" type="text" id="q1_instagram" placeholder="@seu.instagram (opcional)">
+      </div>
+
+      <!-- TELA 2 -->
+      <div class="tela" data-tela="2">
+        <p class="eyebrow">Sua trajetória</p>
+        <p class="pergunta">Há quanto tempo você é formada?</p>
+        <div class="opcoes" data-grupo="tempo_formacao">
+          <div class="opcao"><input type="radio" name="tempo_formacao" id="tf1" value="menos_2"><label for="tf1"><span class="radio-visual"></span>Menos de 2 anos</label></div>
+          <div class="opcao"><input type="radio" name="tempo_formacao" id="tf2" value="2_5"><label for="tf2"><span class="radio-visual"></span>2 a 5 anos</label></div>
+          <div class="opcao"><input type="radio" name="tempo_formacao" id="tf3" value="mais_5"><label for="tf3"><span class="radio-visual"></span>Mais de 5 anos</label></div>
+        </div>
+      </div>
+
+      <!-- TELA 3 -->
+      <div class="tela" data-tela="3">
+        <p class="eyebrow">Sua clínica hoje</p>
+        <p class="pergunta">Você atende atualmente? Quantos pacientes ativos?</p>
+        <div class="opcoes" data-grupo="pacientes_ativos">
+          <div class="opcao"><input type="radio" name="pacientes_ativos" id="pa1" value="nenhum"><label for="pa1"><span class="radio-visual"></span>Não atendo ninguém no momento</label></div>
+          <div class="opcao"><input type="radio" name="pacientes_ativos" id="pa2" value="poucos"><label for="pa2"><span class="radio-visual"></span>Poucos pacientes (até 10)</label></div>
+          <div class="opcao"><input type="radio" name="pacientes_ativos" id="pa3" value="moderado"><label for="pa3"><span class="radio-visual"></span>De 11 a 20 pacientes</label></div>
+          <div class="opcao"><input type="radio" name="pacientes_ativos" id="pa4" value="muitos"><label for="pa4"><span class="radio-visual"></span>Mais de 20 pacientes</label></div>
+        </div>
+      </div>
+
+      <!-- TELA 4 -->
+      <div class="tela" data-tela="4">
+        <p class="eyebrow">Números</p>
+        <p class="pergunta">Qual seu faturamento médio mensal?</p>
+        <div class="opcoes" data-grupo="faturamento">
+          <div class="opcao"><input type="radio" name="faturamento" id="fa1" value="ate_3k"><label for="fa1"><span class="radio-visual"></span>Até R$3.000</label></div>
+          <div class="opcao"><input type="radio" name="faturamento" id="fa2" value="3_5k"><label for="fa2"><span class="radio-visual"></span>R$3.000 a R$5.000</label></div>
+          <div class="opcao"><input type="radio" name="faturamento" id="fa3" value="5_8k"><label for="fa3"><span class="radio-visual"></span>R$5.000 a R$8.000</label></div>
+          <div class="opcao"><input type="radio" name="faturamento" id="fa4" value="8k_mais"><label for="fa4"><span class="radio-visual"></span>Mais de R$8.000</label></div>
+        </div>
+      </div>
+
+      <!-- TELA 5 -->
+      <div class="tela" data-tela="5">
+        <p class="eyebrow">Estrutura</p>
+        <p class="pergunta">Você depende de convênios hoje?</p>
+        <div class="opcoes" data-grupo="convenio">
+          <div class="opcao"><input type="radio" name="convenio" id="cv1" value="totalmente"><label for="cv1"><span class="radio-visual"></span>Sim, totalmente</label></div>
+          <div class="opcao"><input type="radio" name="convenio" id="cv2" value="parcialmente"><label for="cv2"><span class="radio-visual"></span>Parcialmente</label></div>
+          <div class="opcao"><input type="radio" name="convenio" id="cv3" value="nao"><label for="cv3"><span class="radio-visual"></span>Não</label></div>
+        </div>
+      </div>
+
+      <!-- TELA 6 -->
+      <div class="tela" data-tela="6">
+        <p class="eyebrow">Autodiagnóstico</p>
+        <p class="pergunta">Na sua visão, qual é o principal gargalo da sua clínica hoje?</p>
+        <div class="opcoes" data-grupo="gargalo">
+          <div class="opcao"><input type="radio" name="gargalo" id="ga1" value="mental"><label for="ga1"><span class="radio-visual"></span>Mental — medo de cobrar, insegurança no preço</label></div>
+          <div class="opcao"><input type="radio" name="gargalo" id="ga2" value="estrategico"><label for="ga2"><span class="radio-visual"></span>Estratégico — falta de captação de pacientes</label></div>
+          <div class="opcao"><input type="radio" name="gargalo" id="ga3" value="estrutural"><label for="ga3"><span class="radio-visual"></span>Estrutural — clínica desorganizada, sem processos</label></div>
+          <div class="opcao"><input type="radio" name="gargalo" id="ga4" value="financeiro"><label for="ga4"><span class="radio-visual"></span>Financeiro — dinheiro entra e some, sem clareza</label></div>
+        </div>
+      </div>
+
+      <!-- TELA 7 -->
+      <div class="tela" data-tela="7">
+        <p class="eyebrow">Sua motivação</p>
+        <p class="pergunta">Por que agora? O que te fez chegar até aqui hoje?</p>
+        <p class="ajuda">Conta com suas palavras — isso me ajuda a entender seu momento.</p>
+        <textarea class="campo-texto" id="q7_motivo" placeholder="Escreva aqui..."></textarea>
+      </div>
+
+      <!-- TELA 8 -->
+      <div class="tela" data-tela="8">
+        <p class="eyebrow">Última pergunta</p>
+        <p class="pergunta">Você tem condições de dedicar 3 a 5h por semana para implementar?</p>
+        <div class="opcoes" data-grupo="disponibilidade">
+          <div class="opcao"><input type="radio" name="disponibilidade" id="di1" value="sim"><label for="di1"><span class="radio-visual"></span>Sim, tenho esse tempo</label></div>
+          <div class="opcao"><input type="radio" name="disponibilidade" id="di2" value="depende"><label for="di2"><span class="radio-visual"></span>Depende da semana, mas me organizo</label></div>
+          <div class="opcao"><input type="radio" name="disponibilidade" id="di3" value="nao"><label for="di3"><span class="radio-visual"></span>Hoje não teria esse tempo</label></div>
+        </div>
+      </div>
+
+      <!-- TELA RESULTADO -->
+      <div class="tela" data-tela="resultado">
+        <div class="resultado-icone">✓</div>
+        <p class="resultado-titulo" id="res-titulo">Seu diagnóstico preliminar</p>
+        <p class="resultado-texto" id="res-texto"></p>
+        <div class="resultado-card">
+          <b id="res-gargalo-titulo">Gargalo identificado</b>
+          <span id="res-gargalo-texto"></span>
+        </div>
+        <a class="btn btn-primario cta-final" id="btn-whatsapp" href="#" target="_blank" rel="noopener" data-evento="quiz_whatsapp">Agendar minha Sessão de Diagnóstico</a>
+        <p class="nota-final">30 minutos, gratuita, com a Andreza Barros — sem compromisso de compra.</p>
+      </div>
+
+    </div>
+
+    <div class="nav" id="nav">
+      <button class="btn btn-voltar" id="btn-voltar">Voltar</button>
+      <button class="btn btn-primario" id="btn-avancar" disabled>Continuar</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const TOTAL = 8;
+  let atual = 1;
+  const respostas = {};
+
+  const telas = Array.from(document.querySelectorAll('.tela'));
+  const barra = document.getElementById('barra');
+  const contador = document.getElementById('contador');
+  const btnVoltar = document.getElementById('btn-voltar');
+  const btnAvancar = document.getElementById('btn-avancar');
+  const nav = document.getElementById('nav');
+
+  function telaEl(n){ return document.querySelector('.tela[data-tela="'+n+'"]'); }
+
+  function emailValido(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  function respostaValida(n){
+    if(n===1){
+      const nomeOk = document.getElementById('q1_nome').value.trim().length > 0;
+      const emailOk = emailValido(document.getElementById('q1_email').value.trim());
+      return nomeOk && emailOk;
+    }
+    if(n===7){
+      return document.getElementById('q7_motivo').value.trim().length > 0;
+    }
+    const grupos = {2:'tempo_formacao',3:'pacientes_ativos',4:'faturamento',5:'convenio',6:'gargalo',8:'disponibilidade'};
+    const nome = grupos[n];
+    if(!nome) return true;
+    return !!document.querySelector('input[name="'+nome+'"]:checked');
+  }
+
+  function coletar(n){
+    if(n===1){
+      respostas.nome = document.getElementById('q1_nome').value.trim();
+      respostas.email = document.getElementById('q1_email').value.trim();
+      respostas.instagram = document.getElementById('q1_instagram').value.trim();
+    } else if(n===7){
+      respostas.motivo = document.getElementById('q7_motivo').value.trim();
+    } else {
+      const grupos = {2:'tempo_formacao',3:'pacientes_ativos',4:'faturamento',5:'convenio',6:'gargalo',8:'disponibilidade'};
+      const nome = grupos[n];
+      if(nome){
+        const sel = document.querySelector('input[name="'+nome+'"]:checked');
+        if(sel) respostas[nome] = sel.value;
+      }
+    }
+  }
+
+  function mostrar(n){
+    telas.forEach(t => t.classList.remove('ativa'));
+    telaEl(n).classList.add('ativa');
+    if(n <= TOTAL){
+      barra.style.width = (n/TOTAL*100)+'%';
+      contador.textContent = 'Pergunta '+n+' de '+TOTAL;
+      nav.style.display = 'flex';
+      btnVoltar.disabled = (n===1);
+      btnAvancar.textContent = (n===TOTAL) ? 'Ver meu diagnóstico' : 'Continuar';
+      btnAvancar.disabled = !respostaValida(n);
+    } else {
+      nav.style.display = 'none';
+      barra.style.width = '100%';
+    }
+  }
+
+  function gerarResultado(){
+    const textos = {
+      mental: {
+        titulo: 'Gargalo mental',
+        texto: 'O padrão que você descreveu aponta para crenças sobre valor e cobrança travando seu crescimento — antes de qualquer estratégia, isso precisa ser desconstruído.'
+      },
+      estrategico: {
+        titulo: 'Gargalo estratégico',
+        texto: 'Falta de fluxo de captação consistente é um dos pontos que mais prende psicólogas competentes num faturamento instável.'
+      },
+      estrutural: {
+        titulo: 'Gargalo estrutural',
+        texto: 'Sem processos claros (contrato, política de faltas, organização), a clínica fica vulnerável a inadimplência e retrabalho — mesmo com boa demanda.'
+      },
+      financeiro: {
+        titulo: 'Gargalo financeiro',
+        texto: 'Faturar sem saber a própria margem impede decisões seguras de crescimento — gestão financeira clara é o que falta aqui.'
+      }
+    };
+    const g = textos[respostas.gargalo] || textos.mental;
+    const nome = respostas.nome ? respostas.nome.split(' ')[0] : 'Oi';
+
+    document.getElementById('res-titulo').textContent = nome + ', seu diagnóstico preliminar está pronto';
+    document.getElementById('res-texto').textContent = 'Com base no que você compartilhou, aqui está uma primeira leitura — o mapeamento completo acontece na sessão ao vivo.';
+    document.getElementById('res-gargalo-titulo').textContent = g.titulo;
+    document.getElementById('res-gargalo-texto').textContent = g.texto;
+
+    const msg = 'Oi Andreza! Fiz o diagnóstico preliminar no site. Meu nome é ' + (respostas.nome || '') +
+      '. Tempo de formação: ' + (respostas.tempo_formacao || '-') +
+      '. Faturamento: ' + (respostas.faturamento || '-') +
+      '. Gargalo identificado: ' + g.titulo + '.';
+    document.getElementById('btn-whatsapp').href = 'https://wa.me/5584987619997?text=' + encodeURIComponent(msg);
+
+    if(typeof dataLayer!=='undefined')dataLayer.push({event:'quiz_completed',gargalo:respostas.gargalo});
+    if(typeof fbq!=='undefined')fbq('track','CompleteRegistration',{content_name:'Quiz Diagnóstico Clínica'});
+
+    // Envio dos dados — planilha própria do quiz + planilha de Leads + Brevo (via Apps Script)
+    const SUBMIT_URL = '[URL-DO-APPS-SCRIPT-QUIZ]';
+    if(SUBMIT_URL && SUBMIT_URL.indexOf('http') === 0){
+      fetch(SUBMIT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify(respostas)
+      }).catch(()=>{});
+    }
+  }
+
+  document.querySelectorAll('input[type="radio"]').forEach(inp=>{
+    inp.addEventListener('change', ()=> btnAvancar.disabled = !respostaValida(atual));
+  });
+  document.getElementById('q1_nome').addEventListener('input', ()=> btnAvancar.disabled = !respostaValida(1));
+  document.getElementById('q1_email').addEventListener('input', ()=> btnAvancar.disabled = !respostaValida(1));
+  document.getElementById('q7_motivo').addEventListener('input', ()=> btnAvancar.disabled = !respostaValida(7));
+
+  btnAvancar.addEventListener('click', ()=>{
+    coletar(atual);
+    if(atual < TOTAL){
+      atual++;
+      mostrar(atual);
+    } else {
+      gerarResultado();
+      mostrar('resultado');
+    }
+  });
+
+  btnVoltar.addEventListener('click', ()=>{
+    if(atual > 1){
+      atual--;
+      mostrar(atual);
+    }
+  });
+
+  document.getElementById('btn-whatsapp').addEventListener('click', function(){
+    if(typeof dataLayer!=='undefined')dataLayer.push({event:'upsell_click',item_name:'Sessão de diagnóstico'});
+  });
+
+  mostrar(atual);
+})();
+</script>
+
+</body>
+</html>
