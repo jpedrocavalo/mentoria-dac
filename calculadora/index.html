@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding:11px 14px;border:1.5px solid var(--linha);border-radius:10px;background:#fff;outline:none;
     transition:border-color .15s;text-align:right}
   .campo-input input:focus{border-color:var(--verde)}
-  .campo-input.prefixo input{padding-left:28px;text-align:left}
+  .campo-input.prefixo input{padding-left:38px;text-align:left}
   .campo-input .prefixo-simbolo{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--suave);font-size:.92rem;pointer-events:none}
   .campo-input .sufixo-simbolo{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--suave);font-size:.92rem;pointer-events:none}
   .campo-input.sufixo input{padding-right:26px;text-align:right}
@@ -197,6 +197,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   function formatarBRL(v){
     return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits:0});
   }
+  function formatarNumero(v){
+    return v.toLocaleString('pt-BR', {maximumFractionDigits:0});
+  }
 
   const custosFixos = document.getElementById('custosFixos');
   const manutencao = document.getElementById('manutencao');
@@ -211,7 +214,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   function calcular(){
     const custoTotal = num(custosFixos.value) + num(manutencao.value) + num(salario.value);
-    custoMensalTotal.value = formatarBRL(custoTotal);
+    custoMensalTotal.value = formatarNumero(custoTotal);
 
     const semana = num(sessoesSemana.value) || 1;
     const mes = semana * 4.33;
