@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora da Sessão Justa — Andreza Barros</title>
+<meta name="description" content="Descubra em poucos minutos o valor mínimo que sua sessão precisa custar.">
+<meta property="og:title" content="Calculadora da Sessão Justa — Andreza Barros">
+<meta property="og:description" content="Descubra em poucos minutos o valor mínimo que sua sessão precisa custar.">
+<meta property="og:type" content="website">
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KX4MKC2H');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#1E4D40; --verde-escuro:#143830; --verde-claro:#E8F0EC;
+    --papel:#FBFAF7; --tinta:#1C2321; --suave:#5A6660; --linha:#D9DFDB;
+    --ambar:#C25E3A;
+    --font-d:'Fraunces',Georgia,serif; --font-b:'Sora',system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--font-b);background:var(--verde-escuro);color:var(--tinta);
+       display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;
+       -webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  body::before{content:"";position:fixed;inset:0;z-index:0;
+    background:linear-gradient(160deg, var(--verde-escuro) 0%, var(--verde) 55%, var(--verde-escuro) 100%);
+  }
+  body::after{content:"";position:fixed;top:8%;left:50%;width:1px;height:120px;
+    background:linear-gradient(var(--verde-claro),transparent);opacity:.25;transform:translateX(-160px) rotate(-8deg)}
+
+  .stage{position:relative;z-index:1;width:100%;max-width:600px}
+
+  .panel{background:var(--papel);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.35);
+         overflow:hidden}
+
+  .topo{padding:28px 32px 22px;border-bottom:1px solid var(--linha)}
+  .marca{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .marca-icone{width:28px;height:28px;border-radius:50%;background:var(--verde);position:relative;flex-shrink:0}
+  .marca-icone::after{content:"";position:absolute;left:6px;top:13px;width:16px;height:2px;background:var(--papel);border-radius:2px}
+  .marca-nome{font-family:var(--font-d);font-size:.95rem;font-weight:600;color:var(--verde)}
+  .titulo{font-family:var(--font-d);font-size:1.5rem;font-weight:600;color:var(--tinta);margin-bottom:6px}
+  .subtitulo{font-size:.9rem;color:var(--suave)}
+
+  .corpo{padding:8px 32px 36px}
+
+  .secao{padding:22px 0;border-bottom:1px solid var(--linha)}
+  .secao:last-of-type{border-bottom:none}
+  .secao-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ambar);margin-bottom:14px}
+
+  .campo{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+  .campo:last-child{margin-bottom:0}
+  .campo label{font-size:.92rem;color:var(--tinta);flex:1}
+  .campo-input{position:relative;flex-shrink:0;width:150px}
+  .campo-input input{width:100%;font-family:var(--font-b);font-size:.98rem;font-weight:600;color:var(--verde-escuro);
+    padding:11px 14px;border:1.5px solid var(--linha);border-radius:10px;background:#fff;outline:none;
+    transition:border-color .15s;text-align:right}
+  .campo-input input:focus{border-color:var(--verde)}
+  .campo-input.prefixo input{padding-left:28px;text-align:left}
+  .campo-input .prefixo-simbolo{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--suave);font-size:.92rem;pointer-events:none}
+  .campo-input .sufixo-simbolo{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--suave);font-size:.92rem;pointer-events:none}
+  .campo-input.sufixo input{padding-right:26px;text-align:right}
+
+  .campo-calculado label{color:var(--suave)}
+  .campo-calculado .campo-input input{background:var(--verde-claro);border-color:var(--verde-claro);color:var(--verde-escuro);font-weight:700}
+
+  .resultado{background:var(--verde);border-radius:18px;padding:26px 28px;margin-top:4px;text-align:center}
+  .resultado-label{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9CC5B4;margin-bottom:8px}
+  .resultado-valor{font-family:var(--font-d);font-size:2.4rem;font-weight:700;color:#fff}
+  .resultado-nota{font-size:.82rem;color:#DCE8E2;margin-top:10px;line-height:1.5}
+
+  .cta{display:inline-block;width:100%;background:var(--ambar);color:#fff;font-family:var(--font-b);font-weight:700;
+    font-size:1rem;padding:16px 24px;border:none;border-radius:999px;cursor:pointer;text-decoration:none;
+    text-align:center;transition:background .2s, transform .12s;box-shadow:0 8px 20px rgba(194,94,58,.28);margin-top:22px}
+  .cta:hover{background:#a94e30;transform:translateY(-1px)}
+  .cta-nota{font-size:.78rem;color:var(--suave);text-align:center;margin-top:12px}
+
+  @media(max-width:480px){
+    .topo{padding:22px 22px 18px}
+    .corpo{padding:8px 22px 28px}
+    .campo{flex-direction:column;align-items:flex-start;gap:8px}
+    .campo-input{width:100%}
+    .resultado-valor{font-size:2rem}
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX4MKC2H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="stage">
+  <div class="panel">
+
+    <div class="topo">
+      <div class="marca">
+        <div class="marca-icone"></div>
+        <span class="marca-nome">Descomplicando a Clínica</span>
+      </div>
+      <p class="titulo">Calculadora da Sessão Justa</p>
+      <p class="subtitulo">Preencha com números aproximados da sua realidade. Em menos de 2 minutos você vê o valor mínimo que sua sessão precisa custar.</p>
+    </div>
+
+    <div class="corpo">
+
+      <div class="secao">
+        <p class="secao-eyebrow">Seus custos mensais</p>
+
+        <div class="campo">
+          <label for="custosFixos">Custos fixos da clínica (sala, internet, sistema, contabilidade)</label>
+          <div class="campo-input prefixo">
+            <span class="prefixo-simbolo">R$</span>
+            <input type="number" id="custosFixos" inputmode="decimal" placeholder="0" min="0">
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="manutencao">Manutenção profissional (supervisão, formação, terapia pessoal)</label>
+          <div class="campo-input prefixo">
+            <span class="prefixo-simbolo">R$</span>
+            <input type="number" id="manutencao" inputmode="decimal" placeholder="0" min="0">
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="salario">Quanto você quer tirar de salário por mês</label>
+          <div class="campo-input prefixo">
+            <span class="prefixo-simbolo">R$</span>
+            <input type="number" id="salario" inputmode="decimal" placeholder="0" min="0">
+          </div>
+        </div>
+
+        <div class="campo campo-calculado">
+          <label>Custo mensal total</label>
+          <div class="campo-input prefixo">
+            <span class="prefixo-simbolo">R$</span>
+            <input type="text" id="custoMensalTotal" disabled value="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="secao">
+        <p class="secao-eyebrow">Suas sessões clínicas</p>
+
+        <div class="campo">
+          <label for="sessoesSemana">Sessões clínicas por semana (número saudável)</label>
+          <div class="campo-input">
+            <input type="number" id="sessoesSemana" inputmode="numeric" min="1" step="1" value="1">
+          </div>
+        </div>
+
+        <div class="campo campo-calculado">
+          <label>Sessões por mês (× 4,33)</label>
+          <div class="campo-input">
+            <input type="text" id="sessoesMes" disabled value="4">
+          </div>
+        </div>
+      </div>
+
+      <div class="secao">
+        <p class="secao-eyebrow">Ajuste rápido</p>
+
+        <div class="campo">
+          <label for="margem">Margem para faltas e imprevistos (sugestão: 15 a 20%)</label>
+          <div class="campo-input sufixo">
+            <input type="number" id="margem" inputmode="decimal" min="0" max="90" value="18">
+            <span class="sufixo-simbolo">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resultado">
+        <p class="resultado-label">Valor mínimo da sua sessão</p>
+        <p class="resultado-valor" id="resultadoValor">R$ 0</p>
+        <p class="resultado-nota">Este é o seu piso — o mínimo para não trabalhar no prejuízo. Não é, necessariamente, o preço ideal: posicionamento de mercado, especialidade e demanda também entram na conta.</p>
+      </div>
+
+      <a class="cta" href="https://semculpa.andrezabarros.com.br" id="cta-tripwire">Quero ir além do piso — Precificação Sem Culpa</a>
+      <p class="cta-nota">Guia + planilha avançada + aula + script de reajuste, por R$47.</p>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function num(v){
+    const n = parseFloat(String(v).replace(',', '.'));
+    return isNaN(n) || n < 0 ? 0 : n;
+  }
+  function formatarBRL(v){
+    return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits:0});
+  }
+
+  const custosFixos = document.getElementById('custosFixos');
+  const manutencao = document.getElementById('manutencao');
+  const salario = document.getElementById('salario');
+  const custoMensalTotal = document.getElementById('custoMensalTotal');
+  const sessoesSemana = document.getElementById('sessoesSemana');
+  const sessoesMes = document.getElementById('sessoesMes');
+  const margem = document.getElementById('margem');
+  const resultadoValor = document.getElementById('resultadoValor');
+
+  let calculouAoMenosUmaVez = false;
+
+  function calcular(){
+    const custoTotal = num(custosFixos.value) + num(manutencao.value) + num(salario.value);
+    custoMensalTotal.value = formatarBRL(custoTotal);
+
+    const semana = num(sessoesSemana.value) || 1;
+    const mes = semana * 4.33;
+    sessoesMes.value = mes.toFixed(1).replace('.0', '');
+
+    const margemDecimal = Math.min(num(margem.value), 90) / 100;
+    let valorMinimo = 0;
+    if (mes > 0 && margemDecimal < 1) {
+      valorMinimo = (custoTotal / mes) / (1 - margemDecimal);
+    }
+    resultadoValor.textContent = formatarBRL(Math.round(valorMinimo));
+
+    if (!calculouAoMenosUmaVez && custoTotal > 0) {
+      calculouAoMenosUmaVez = true;
+      if(typeof dataLayer!=='undefined')dataLayer.push({event:'calculadora_usada'});
+    }
+  }
+
+  [custosFixos, manutencao, salario, sessoesSemana, margem].forEach(function(el){
+    el.addEventListener('input', calcular);
+  });
+
+  document.getElementById('cta-tripwire').addEventListener('click', function(){
+    if(typeof dataLayer!=='undefined')dataLayer.push({event:'upsell_click', item_name:'Precificação Sem Culpa'});
+    if(typeof fbq!=='undefined')fbq('track','ViewContent',{content_name:'Precificação Sem Culpa - via calculadora'});
+  });
+
+  calcular();
+})();
+</script>
+
+</body>
+</html>
