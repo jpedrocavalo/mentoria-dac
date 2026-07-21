@@ -131,9 +131,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="tela ativa" data-tela="1">
         <p class="eyebrow">Vamos começar</p>
         <p class="pergunta">Qual é o seu nome?</p>
-        <p class="ajuda">E seu melhor e-mail — é por ele que eu te aviso sobre sua sessão de diagnóstico.</p>
+        <p class="ajuda">E seu melhor e-mail e WhatsApp — é por eles que eu te aviso sobre sua sessão de diagnóstico.</p>
         <input class="campo-linha" type="text" id="q1_nome" placeholder="Seu nome">
         <input class="campo-linha" type="email" id="q1_email" placeholder="Seu melhor e-mail">
+        <input class="campo-linha" type="tel" id="q1_telefone" placeholder="Seu WhatsApp" inputmode="numeric" maxlength="15">
         <input class="campo-linha" type="text" id="q1_instagram" placeholder="@seu.instagram (opcional)">
       </div>
 
@@ -255,7 +256,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if(n===1){
       const nomeOk = document.getElementById('q1_nome').value.trim().length > 0;
       const emailOk = emailValido(document.getElementById('q1_email').value.trim());
-      return nomeOk && emailOk;
+      const telefoneOk = document.getElementById('q1_telefone').value.replace(/\D/g,'').length >= 10;
+      return nomeOk && emailOk && telefoneOk;
     }
     if(n===7){
       return document.getElementById('q7_motivo').value.trim().length > 0;
@@ -270,6 +272,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if(n===1){
       respostas.nome = document.getElementById('q1_nome').value.trim();
       respostas.email = document.getElementById('q1_email').value.trim();
+      respostas.telefone = document.getElementById('q1_telefone').value.trim();
       respostas.instagram = document.getElementById('q1_instagram').value.trim();
     } else if(n===7){
       respostas.motivo = document.getElementById('q7_motivo').value.trim();
@@ -325,6 +328,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   });
   document.getElementById('q1_nome').addEventListener('input', ()=> btnAvancar.disabled = !respostaValida(1));
   document.getElementById('q1_email').addEventListener('input', ()=> btnAvancar.disabled = !respostaValida(1));
+  document.getElementById('q1_telefone').addEventListener('input', function(e){
+    let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 10) {
+      v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    } else if (v.length > 5) {
+      v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    } else if (v.length > 2) {
+      v = v.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+    } else if (v.length > 0) {
+      v = v.replace(/(\d{0,2})/, '($1');
+    }
+    e.target.value = v.replace(/-$/, '').replace(/\)\s$/, ')');
+    btnAvancar.disabled = !respostaValida(1);
+  });
   document.getElementById('q7_motivo').addEventListener('input', ()=> btnAvancar.disabled = !respostaValida(7));
 
   btnAvancar.addEventListener('click', ()=>{
