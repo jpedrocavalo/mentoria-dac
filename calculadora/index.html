@@ -39,16 +39,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .stage{position:relative;z-index:1;width:100%;max-width:600px}
 
-  .panel{background:var(--papel);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.35);
-         overflow:hidden}
+  .panel{background:var(--papel);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
 
-  .topo{padding:18px 28px 12px;border-bottom:1px solid var(--linha)}
+  .topo{padding:18px 28px 12px;background:var(--ambar);border-radius:24px 24px 0 0;position:sticky;top:0;z-index:10}
   .marca{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-  .marca-icone{width:22px;height:22px;border-radius:50%;background:var(--verde);position:relative;flex-shrink:0}
-  .marca-icone::after{content:"";position:absolute;left:5px;top:10px;width:12px;height:2px;background:var(--papel);border-radius:2px}
-  .marca-nome{font-family:var(--font-d);font-size:.85rem;font-weight:600;color:var(--verde)}
-  .titulo{font-family:var(--font-d);font-size:1.2rem;font-weight:600;color:var(--tinta);margin-bottom:3px}
-  .subtitulo{font-size:.8rem;color:var(--suave);line-height:1.4}
+  .marca-icone{width:22px;height:22px;border-radius:50%;background:#fff;position:relative;flex-shrink:0}
+  .marca-icone::after{content:"";position:absolute;left:5px;top:10px;width:12px;height:2px;background:var(--ambar);border-radius:2px}
+  .marca-nome{font-family:var(--font-d);font-size:.85rem;font-weight:600;color:#fff}
+  .titulo{font-family:var(--font-d);font-size:1.2rem;font-weight:600;color:#fff;margin-bottom:3px}
+  .subtitulo{font-size:.8rem;color:rgba(255,255,255,.85);line-height:1.4}
 
   .corpo{padding:2px 28px 20px}
 
