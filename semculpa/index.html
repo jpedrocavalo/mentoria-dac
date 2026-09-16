@@ -94,6 +94,8 @@
   .foto-placeholder{width:240px;height:240px;border-radius:50%;background:var(--creme-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:1.4rem;color:var(--suave)}
 
   .preco{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.035em;font-weight:500;margin:32px 0 6px}
+  .preco .parcelas{font-size:.42em;font-weight:400;color:var(--suave);margin-right:.3em;letter-spacing:0}
+    .escuro .preco .parcelas{color:rgba(243,238,228,.65)}
   .preco small{display:block;font-size:.45em;font-weight:400;color:var(--suave);letter-spacing:-.01em;margin-top:8px}
   .preco-avista{font-size:1rem;color:var(--suave)}
   .escuro .preco-avista,.escuro .preco small{color:rgba(243,238,228,.65)}
@@ -238,7 +240,8 @@
     <p class="label">Esta condição só existe nesta página</p>
     <h2>precificação sem culpa</h2>
     <p class="preco-antigo">De R$97</p>
-    <p class="preco" style="margin-top:6px">R$47<small>acesso imediato · em até 5x de R$9,88</small></p>
+    <p class="preco" style="margin-top:6px"><span class="parcelas">5x</span>R$9,88<small>no cartão</small></p>
+    <p class="preco-avista">ou R$47 à vista · acesso imediato</p>
     <ul class="oferta-linhas">
       <li><span class="k">Inclui</span><span>Guia em PDF · planilha avançada · aula de 40 min · script de reajuste</span></li>
       <li><span class="k">Garantia</span><span>7 dias, incondicional. Se você aplicar e sentir que não valeu, devolvemos 100%. Sem perguntas.</span></li>
