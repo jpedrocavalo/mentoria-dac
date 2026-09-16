@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Política de Privacidade — Descomplicando a Clínica</title>
+  <title>Política de Privacidade, Descomplicando a Clínica</title>
   <meta name="robots" content="noindex">
 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -14,41 +14,139 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --verde:#1E4D40; --verde-escuro:#143830; --verde-claro:#E8F0EC;
-      --papel:#FBFAF7; --tinta:#1C2321; --tinta-suave:#5A6660; --linha:#D9DFDB;
-      --font-display:'Fraunces', Georgia, serif;
-      --font-body:'Sora', system-ui, sans-serif;
-      --max:680px;
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:var(--font-body);font-size:1.0625rem;line-height:1.7;color:var(--tinta);background:var(--papel);-webkit-font-smoothing:antialiased}
-    .container{width:100%;max-width:var(--max);margin:0 auto;padding:56px 22px 96px}
-    h1{font-family:var(--font-display);font-size:clamp(1.6rem,4.4vw,2.1rem);font-weight:600;line-height:1.2;margin-bottom:8px}
-    h2{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin:36px 0 12px;color:var(--verde-escuro)}
-    p{margin-bottom:14px;color:var(--tinta)}
-    ul{margin:0 0 14px 20px}
-    li{margin-bottom:6px}
-    a{color:var(--verde-escuro)}
-    .atualizado{font-size:.88rem;color:var(--tinta-suave);margin-bottom:36px}
-    .voltar{display:inline-block;margin-top:40px;font-size:.9rem;color:var(--tinta-suave);text-decoration:underline}
-    .voltar:hover{color:var(--verde-escuro)}
-    strong{font-weight:600}
+  :root{
+    --creme:#EBE2D2; --creme-2:#DFD3BE; --bege-escuro:#D3C1A1; --carvao:#211D19;
+    --tinta:#1C1A17; --suave:#6B6154; --linha:#C4B69E; --acento:#A8865A;
+    --font-sans:'Inter Tight',system-ui,sans-serif; --font-mono:'Inter Tight',system-ui,sans-serif;
+    --max:1080px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--tinta);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+
+  .faixa{position:sticky;top:0;z-index:999;background:var(--acento);color:var(--creme);font-family:var(--font-mono);font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:10px 16px}
+
+  .label{font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);margin-bottom:28px}
+  h1{font-size:clamp(2.1rem,5vw,3.9rem);line-height:1.05;letter-spacing:-.03em;font-weight:500;text-transform:lowercase;max-width:20ch}
+  h2{font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.1;letter-spacing:-.025em;font-weight:500;text-transform:lowercase;max-width:24ch}
+  h3{font-size:1.2rem;font-weight:500;letter-spacing:-.01em}
+  p{max-width:60ch}
+  .muted{color:var(--suave)}
+  .lead{font-size:1.15rem;line-height:1.5}
+
+  .grid-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px;align-items:start}
+  .grid-2 .label{margin-bottom:0}
+
+  .lista{list-style:none;margin-top:48px}
+  .lista li{display:grid;grid-template-columns:72px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--linha)}
+  .lista li:last-child{border-bottom:1px solid var(--linha)}
+  .lista .num{font-family:var(--font-mono);font-size:.72rem;color:var(--suave);padding-top:6px}
+  .lista-dac .num{font-size:2.4rem;font-weight:500;line-height:1;letter-spacing:-.02em;padding-top:0}
+  .lista h3{margin-bottom:6px}
+  .lista p{color:var(--suave);font-size:.96rem;max-width:58ch}
+
+  .bege{background:var(--bege-escuro)}
+  .bege .lista li,.bege details,.bege .depo{border-color:rgba(28,26,23,.22)}
+  .bege .label{color:#5B5245}
+  .bege .muted,.bege .lista p,.bege details p,.bege .depo-resultado,.bege .depo-autor span{color:#5B5245}
+  .bege .oferta-linhas li{border-color:rgba(28,26,23,.18)}
+  .bege .oferta-linhas .k{color:var(--suave)}
+
+  .escuro{background:var(--carvao);color:var(--creme)}
+  .escuro .label{color:rgba(243,238,228,.55)}
+  .escuro .muted,.escuro .lista p{color:rgba(243,238,228,.68)}
+  .escuro .lista li{border-color:rgba(243,238,228,.18)}
+  .escuro .lista .num{color:rgba(243,238,228,.55)}
+
+  .selo{display:inline-flex;align-items:center;gap:14px;background:var(--tinta);color:var(--creme);font-size:1rem;font-weight:500;letter-spacing:-.01em;padding:20px 32px;transition:background .2s,gap .2s}
+  .selo::after{content:"→";font-size:1.05rem}
+  .selo:hover{background:var(--acento);gap:20px}
+  .escuro .selo{background:var(--creme);color:var(--tinta)}
+  .escuro .selo:hover{background:var(--acento);color:var(--creme)}
+  .cta-wrap{display:flex;align-items:center;gap:28px;margin-top:40px;flex-wrap:wrap}
+  .cta-note{font-size:.85rem;color:var(--suave);max-width:28ch;line-height:1.5}
+  .escuro .cta-note{color:rgba(243,238,228,.6)}
+
+  .btn{display:inline-block;background:var(--tinta);color:var(--creme);font-size:.95rem;font-weight:500;padding:16px 24px;text-align:center;transition:background .2s}
+  .btn:hover{background:var(--acento)}
+
+  .depo{padding:40px 0;border-top:1px solid var(--linha)}
+  .depo:last-of-type{border-bottom:1px solid var(--linha)}
+  .depo blockquote{font-size:1.35rem;line-height:1.35;letter-spacing:-.015em;font-weight:500;max-width:34ch;margin-bottom:28px}
+  .depo-autor{display:flex;align-items:center;gap:16px}
+  .foto{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 15%;flex-shrink:0}
+  .depo-autor b{display:block;font-weight:500}
+  .depo-autor span{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
+  .depo-resultado{margin-top:20px;font-size:.95rem;color:var(--suave);max-width:56ch}
+  .depo-resultado b{color:var(--tinta);font-weight:500}
+
+  .foto-placeholder{width:240px;height:240px;border-radius:50%;background:var(--creme-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:1.4rem;color:var(--suave)}
+
+  .preco{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.035em;font-weight:500;margin:32px 0 6px}
+  .preco small{display:block;font-size:.45em;font-weight:400;color:var(--suave);letter-spacing:-.01em;margin-top:8px}
+  .preco-avista{font-size:1rem;color:var(--suave)}
+  .escuro .preco-avista,.escuro .preco small{color:rgba(243,238,228,.65)}
+  .oferta-linhas{list-style:none;margin:40px 0;max-width:520px}
+  .oferta-linhas li{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-top:1px solid rgba(243,238,228,.18);font-size:.95rem}
+  .oferta-linhas li:last-child{border-bottom:1px solid rgba(243,238,228,.18)}
+  .oferta-linhas .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,238,228,.55);padding-top:3px}
+
+  details{border-top:1px solid var(--linha)}
+  details:last-of-type{border-bottom:1px solid var(--linha)}
+  summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:72px 1fr auto;gap:24px;padding:24px 0;font-size:1.1rem;font-weight:500;align-items:baseline}
+  summary::-webkit-details-marker{display:none}
+  summary .num{font-family:var(--font-mono);font-size:.72rem;color:var(--suave)}
+  summary .mais{font-family:var(--font-mono);font-size:1rem;transition:transform .2s;display:inline-block}
+  details[open] summary .mais{transform:rotate(45deg)}
+  details p{padding:0 0 24px 96px;color:var(--suave);font-size:.95rem;max-width:64ch}
+
+  footer{padding:48px 0 120px;border-top:1px solid var(--linha)}
+  footer p{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);margin-bottom:10px}
+  footer a{text-decoration:underline;text-underline-offset:3px}
+
+  .sticky{display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(235,226,210,.96);backdrop-filter:blur(10px);border-top:1px solid var(--linha);z-index:998}
+  .sticky .btn{display:block;width:100%}
+
+  @media(max-width:760px){
+    section{padding:64px 0}
+    .grid-2{grid-template-columns:1fr;gap:24px}
+    .lista li{grid-template-columns:44px 1fr;gap:14px}
+    summary{grid-template-columns:44px 1fr auto;gap:14px}
+    details p{padding-left:58px}
+    .selo{width:100%;justify-content:space-between}
+  }
+
+    .container{max-width:760px;padding-top:80px;padding-bottom:96px}
+    .container h1{margin-bottom:12px}
+    .atualizado{font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-bottom:48px}
+    .container h2{font-size:1.35rem;text-transform:none;letter-spacing:-.015em;margin:44px 0 12px;padding-top:24px;border-top:1px solid var(--linha)}
+    .container p{margin-bottom:14px;max-width:70ch}
+    .container ul{margin:0 0 14px 20px;max-width:70ch}
+    .container li{margin-bottom:6px}
+    .container a{text-decoration:underline;text-underline-offset:3px}
+    .voltar{display:inline-block;margin-top:48px;font-size:.95rem;color:var(--suave)}
+    .voltar:hover{color:var(--tinta)}
   </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX4MKC2H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="faixa">Descomplicando a Clínica · Andreza Barros</div>
 <div class="container">
-  <h1>Política de Privacidade</h1>
+  <h1>política de privacidade</h1>
   <p class="atualizado">Última atualização: julho de 2026</p>
 
-  <p>Esta Política de Privacidade explica como a <strong>Andreza Barros — Descomplicando a Clínica</strong> ("nós") coleta, usa e protege os dados pessoais de quem visita nossas páginas, baixa materiais gratuitos, compra produtos ou aplica para a Mentoria Individual DAC.</p>
+  <p>Esta Política de Privacidade explica como a <strong>Andreza Barros, Descomplicando a Clínica</strong> ("nós") coleta, usa e protege os dados pessoais de quem visita nossas páginas, baixa materiais gratuitos, compra produtos ou aplica para a Mentoria Individual DAC.</p>
 
   <h2>1. Quem é o controlador dos dados</h2>
-  <p>Andreza Barros, psicóloga (CRP 17/3631), responsável pelo projeto Descomplicando a Clínica, é a controladora dos dados pessoais tratados através destas páginas, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).</p>
+  <p>Andreza Barros, psicóloga (CRP 17/3631), responsável pelo projeto Descomplicando a Clínica, é a controladora dos dados pessoais tratados através destas páginas, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018, LGPD).</p>
 
   <h2>2. Quais dados coletamos</h2>
   <ul>
@@ -56,7 +154,7 @@
     <li>E-mail</li>
     <li>Telefone/WhatsApp</li>
     <li>Dados de navegação (páginas visitadas, origem do acesso) via ferramentas de análise</li>
-    <li>Dados de pagamento, quando você realiza uma compra — processados diretamente pela plataforma de pagamento (Kiwify), não armazenados por nós</li>
+    <li>Dados de pagamento, quando você realiza uma compra, processados diretamente pela plataforma de pagamento (Kiwify), não armazenados por nós</li>
   </ul>
 
   <h2>3. Para que usamos seus dados</h2>
@@ -70,9 +168,9 @@
   <h2>4. Com quem compartilhamos seus dados</h2>
   <p>Usamos as seguintes ferramentas para operar este negócio, que podem ter acesso aos seus dados como operadoras, dentro dos limites necessários para prestar o serviço:</p>
   <ul>
-    <li><strong>Kiwify</strong> — processamento de pagamentos e entrega de produtos digitais</li>
-    <li><strong>Brevo</strong> — envio de e-mails de conteúdo e comunicação</li>
-    <li><strong>Google (Planilhas, Formulários, Apps Script)</strong> — armazenamento de cadastros e formulários de aplicação</li>
+    <li><strong>Kiwify</strong>, processamento de pagamentos e entrega de produtos digitais</li>
+    <li><strong>Brevo</strong>, envio de e-mails de conteúdo e comunicação</li>
+    <li><strong>Google (Planilhas, Formulários, Apps Script)</strong>, armazenamento de cadastros e formulários de aplicação</li>
   </ul>
   <p>Não vendemos nem alugamos seus dados pessoais a terceiros.</p>
 

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mentoria Individual DAC — Andreza Barros</title>
+<title>Mentoria Individual DAC, Andreza Barros</title>
 <meta name="description" content="Mentoria individual para psicólogos que querem estruturar a clínica e construir o caminho para R$10 a R$15 mil por mês, sem convênios.">
-<meta property="og:title" content="Mentoria Individual DAC — Andreza Barros">
+<meta property="og:title" content="Mentoria Individual DAC, Andreza Barros">
 <meta property="og:description" content="Sua clínica tem um teto de vidro. Em 6 meses, a gente rompe ele juntos.">
 <meta property="og:type" content="website">
 
@@ -17,263 +17,283 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  *,*::before,*::after{box-sizing:border-box}
-  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
-  ::selection { background: #E8F0EC; color: #1E4D40; }
-  body{margin:0;font-family:'Sora',system-ui,sans-serif;font-size:17px;line-height:1.7;color:#1C2321;background:#FBFAF7;overflow-x:hidden}
+  :root{
+    --creme:#EBE2D2; --creme-2:#DFD3BE; --bege-escuro:#D3C1A1; --carvao:#211D19;
+    --tinta:#1C1A17; --suave:#6B6154; --linha:#C4B69E; --acento:#A8865A;
+    --font-sans:'Inter Tight',system-ui,sans-serif; --font-mono:'Inter Tight',system-ui,sans-serif;
+    --max:1080px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--tinta);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   img{max-width:100%;display:block}
-  a{text-decoration:none}
+  a{color:inherit;text-decoration:none}
+  .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
 
-  details{background:#fff;border-radius:20px;margin-bottom:12px;overflow:hidden;box-shadow:0 3px 12px rgba(30,77,64,.06)}
-  summary{padding:18px 22px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faixa{position:sticky;top:0;z-index:999;background:var(--acento);color:var(--creme);font-family:var(--font-mono);font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:10px 16px}
+
+  .label{font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);margin-bottom:28px}
+  h1{font-size:clamp(2.1rem,5vw,3.9rem);line-height:1.05;letter-spacing:-.03em;font-weight:500;text-transform:lowercase;max-width:20ch}
+  h2{font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.1;letter-spacing:-.025em;font-weight:500;text-transform:lowercase;max-width:24ch}
+  h3{font-size:1.2rem;font-weight:500;letter-spacing:-.01em}
+  p{max-width:60ch}
+  .muted{color:var(--suave)}
+  .lead{font-size:1.15rem;line-height:1.5}
+
+  .grid-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px;align-items:start}
+  .grid-2 .label{margin-bottom:0}
+
+  .lista{list-style:none;margin-top:48px}
+  .lista li{display:grid;grid-template-columns:72px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--linha)}
+  .lista li:last-child{border-bottom:1px solid var(--linha)}
+  .lista .num{font-family:var(--font-mono);font-size:.72rem;color:var(--suave);padding-top:6px}
+  .lista-dac .num{font-size:2.4rem;font-weight:500;line-height:1;letter-spacing:-.02em;padding-top:0}
+  .lista h3{margin-bottom:6px}
+  .lista p{color:var(--suave);font-size:.96rem;max-width:58ch}
+
+  .bege{background:var(--bege-escuro)}
+  .bege .lista li,.bege details,.bege .depo{border-color:rgba(28,26,23,.22)}
+  .bege .label{color:#5B5245}
+  .bege .muted,.bege .lista p,.bege details p,.bege .depo-resultado,.bege .depo-autor span{color:#5B5245}
+  .bege .oferta-linhas li{border-color:rgba(28,26,23,.18)}
+  .bege .oferta-linhas .k{color:var(--suave)}
+
+  .escuro{background:var(--carvao);color:var(--creme)}
+  .escuro .label{color:rgba(243,238,228,.55)}
+  .escuro .muted,.escuro .lista p{color:rgba(243,238,228,.68)}
+  .escuro .lista li{border-color:rgba(243,238,228,.18)}
+  .escuro .lista .num{color:rgba(243,238,228,.55)}
+
+  .selo{display:inline-flex;align-items:center;gap:14px;background:var(--tinta);color:var(--creme);font-size:1rem;font-weight:500;letter-spacing:-.01em;padding:20px 32px;transition:background .2s,gap .2s}
+  .selo::after{content:"→";font-size:1.05rem}
+  .selo:hover{background:var(--acento);gap:20px}
+  .escuro .selo{background:var(--creme);color:var(--tinta)}
+  .escuro .selo:hover{background:var(--acento);color:var(--creme)}
+  .cta-wrap{display:flex;align-items:center;gap:28px;margin-top:40px;flex-wrap:wrap}
+  .cta-note{font-size:.85rem;color:var(--suave);max-width:28ch;line-height:1.5}
+  .escuro .cta-note{color:rgba(243,238,228,.6)}
+
+  .btn{display:inline-block;background:var(--tinta);color:var(--creme);font-size:.95rem;font-weight:500;padding:16px 24px;text-align:center;transition:background .2s}
+  .btn:hover{background:var(--acento)}
+
+  .depo{padding:40px 0;border-top:1px solid var(--linha)}
+  .depo:last-of-type{border-bottom:1px solid var(--linha)}
+  .depo blockquote{font-size:1.35rem;line-height:1.35;letter-spacing:-.015em;font-weight:500;max-width:34ch;margin-bottom:28px}
+  .depo-autor{display:flex;align-items:center;gap:16px}
+  .foto{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 15%;flex-shrink:0}
+  .depo-autor b{display:block;font-weight:500}
+  .depo-autor span{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
+  .depo-resultado{margin-top:20px;font-size:.95rem;color:var(--suave);max-width:56ch}
+  .depo-resultado b{color:var(--tinta);font-weight:500}
+
+  .foto-placeholder{width:240px;height:240px;border-radius:50%;background:var(--creme-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:1.4rem;color:var(--suave)}
+
+  .preco{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.035em;font-weight:500;margin:32px 0 6px}
+  .preco small{display:block;font-size:.45em;font-weight:400;color:var(--suave);letter-spacing:-.01em;margin-top:8px}
+  .preco-avista{font-size:1rem;color:var(--suave)}
+  .escuro .preco-avista,.escuro .preco small{color:rgba(243,238,228,.65)}
+  .oferta-linhas{list-style:none;margin:40px 0;max-width:520px}
+  .oferta-linhas li{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-top:1px solid rgba(243,238,228,.18);font-size:.95rem}
+  .oferta-linhas li:last-child{border-bottom:1px solid rgba(243,238,228,.18)}
+  .oferta-linhas .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,238,228,.55);padding-top:3px}
+
+  details{border-top:1px solid var(--linha)}
+  details:last-of-type{border-bottom:1px solid var(--linha)}
+  summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:72px 1fr auto;gap:24px;padding:24px 0;font-size:1.1rem;font-weight:500;align-items:baseline}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:#1E4D40;flex-shrink:0;transition:transform .2s}
-  details[open] summary::after{transform:rotate(45deg)}
-  details p{padding:0 22px 20px;margin:0;font-size:.97rem;color:#5A6660}
+  summary .num{font-family:var(--font-mono);font-size:.72rem;color:var(--suave)}
+  summary .mais{font-family:var(--font-mono);font-size:1rem;transition:transform .2s;display:inline-block}
+  details[open] summary .mais{transform:rotate(45deg)}
+  details p{padding:0 0 24px 96px;color:var(--suave);font-size:.95rem;max-width:64ch}
 
-  .foto-placeholder{width:100%;height:100%;background:#E8F0EC;display:flex;align-items:center;justify-content:center;color:#1E4D40;font-family:'Fraunces',Georgia,serif;font-weight:700}
+  footer{padding:48px 0 120px;border-top:1px solid var(--linha)}
+  footer p{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);margin-bottom:10px}
+  footer a{text-decoration:underline;text-underline-offset:3px}
+
+  .sticky{display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(235,226,210,.96);backdrop-filter:blur(10px);border-top:1px solid var(--linha);z-index:998}
+  .sticky .btn{display:block;width:100%}
+
+  @media(max-width:760px){
+    section{padding:64px 0}
+    .grid-2{grid-template-columns:1fr;gap:24px}
+    .lista li{grid-template-columns:44px 1fr;gap:14px}
+    summary{grid-template-columns:44px 1fr auto;gap:14px}
+    details p{padding-left:58px}
+    .selo{width:100%;justify-content:space-between}
+  }
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX4MKC2H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div>
+<div class="faixa">Descomplicando a Clínica · Andreza Barros</div>
 
-  <!-- HERO -->
-  <section style="padding:64px 0 48px;background:#1E4D40;color:#fff;border-radius:0 0 40px 40px">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px;text-align:center">
-      <span style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);color:#fff;font-size:.85rem;font-weight:700;padding:8px 18px;border-radius:999px;margin-bottom:26px">
-        <i style="width:8px;height:8px;border-radius:50%;background:#C25E3A;display:inline-block"></i>Mentoria Individual DAC · 6 meses
-      </span>
-      <h1 style="font-family:'Fraunces',Georgia,serif;line-height:1.22;color:#fff;font-size:clamp(1.9rem,5.6vw,2.9rem);font-weight:600;margin:0 0 22px;max-width:640px;margin-left:auto;margin-right:auto">Sua clínica tem um teto de vidro.<br><span style="color:#9CC5B4;font-style:italic">Em 6 meses, a gente rompe ele juntos.</span></h1>
-      <p style="font-size:1.1rem;color:#DCE8E2;max-width:600px;margin:0 auto 34px">Mentoria individual para psicólogos com 2+ anos de formação que querem estruturar a clínica, ter pacientes chegando com consistência e construir o caminho para <strong style="color:#fff;font-weight:600">R$10 a R$15 mil por mês — sem convênios</strong>.</p>
-      <a href="https://pay.kiwify.com.br/o8dA7PG" style="display:inline-block;background:#fff;color:#1E4D40;font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:1.05rem;padding:18px 34px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.18)" data-evento="checkout_mentoria">Quero começar a mentoria</a>
-      <p style="font-size:.85rem;color:#B9D2C7;margin-top:14px">Acesso liberado assim que a matrícula for confirmada</p>
-    </div>
-  </section>
-
-  <!-- PROOF CHIPS -->
-  <section style="padding:36px 0 8px">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
-      <div style="background:#fff;border-radius:18px;padding:18px 24px;box-shadow:0 6px 18px rgba(30,77,64,.08);text-align:center">
-        <b style="font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:#1E4D40;display:block;line-height:1.1">10x mais</b>
-        <span style="font-size:.8rem;color:#5A6660">de faturamento em 5 meses</span>
-      </div>
-      <div style="background:#fff;border-radius:18px;padding:18px 24px;box-shadow:0 6px 18px rgba(30,77,64,.08);text-align:center">
-        <b style="font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:#1E4D40;display:block;line-height:1.1">10+ anos</b>
-        <span style="font-size:.8rem;color:#5A6660">de clínica da mentora</span>
-      </div>
-      <div style="background:#fff;border-radius:18px;padding:18px 24px;box-shadow:0 6px 18px rgba(30,77,64,.08);text-align:center">
-        <b style="font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:#1E4D40;display:block;line-height:1.1">12 sessões</b>
-        <span style="font-size:.8rem;color:#5A6660">acompanhamento 1:1 em 6 meses</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- DORES (PROBLEM) -->
-  <section style="padding:56px 0">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px;text-align:center">
-      <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1E4D40;margin-bottom:14px">Talvez você se reconheça aqui</p>
-      <h2 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#1C2321;font-size:1.75rem;margin:0 0 28px">Competência você tem de sobra.<br>O que falta é estrutura.</h2>
-
-      <div style="text-align:left;display:grid;gap:14px">
-        <div style="background:#E8F0EC;border-radius:20px;padding:22px 24px">
-          <b style="font-family:'Fraunces',Georgia,serif;font-size:1.05rem;display:block;margin-bottom:4px;color:#1E4D40">Agenda cheia, conta vazia</b>
-          <p style="margin:0;font-size:.98rem;color:#3f4b46">Você atende muito, cobra pouco e não reajusta há tempo demais — porque uma voz interna insiste que "ninguém paga caro por psicologia".</p>
-        </div>
-        <div style="background:#E8F0EC;border-radius:20px;padding:22px 24px">
-          <b style="font-family:'Fraunces',Georgia,serif;font-size:1.05rem;display:block;margin-bottom:4px;color:#1E4D40">Paciente que chega por sorte</b>
-          <p style="margin:0;font-size:.98rem;color:#3f4b46">Sem fluxo de captação, o mês bom depende de indicação. E o mês ruim vira pânico silencioso.</p>
-        </div>
-        <div style="background:#E8F0EC;border-radius:20px;padding:22px 24px">
-          <b style="font-family:'Fraunces',Georgia,serif;font-size:1.05rem;display:block;margin-bottom:4px;color:#1E4D40">Clínica sem processos</b>
-          <p style="margin:0;font-size:.98rem;color:#3f4b46">Sem contrato, sem política de faltas, sem previsibilidade. Cada cancelamento é prejuízo e desgaste.</p>
-        </div>
-        <div style="background:#E8F0EC;border-radius:20px;padding:22px 24px">
-          <b style="font-family:'Fraunces',Georgia,serif;font-size:1.05rem;display:block;margin-bottom:4px;color:#1E4D40">Dinheiro que entra e some</b>
-          <p style="margin:0;font-size:.98rem;color:#3f4b46">Você fatura, paga as contas e não sabe dizer quanto sobrou — nem quanto poderia crescer.</p>
-        </div>
-      </div>
-
-      <p style="margin-top:26px;margin-bottom:0;text-align:left">Nada disso é falta de capacidade técnica. É o que acontece quando um profissional excelente sai da graduação <strong style="font-weight:600">sem nunca ter aprendido a construir um negócio</strong> — porque ninguém ensinou.</p>
-    </div>
-  </section>
-
-  <!-- MÉTODO (SOLUTION) -->
-  <section style="padding:8px 16px 56px">
-    <div style="width:100%;max-width:720px;margin:0 auto;background:#1E4D40;color:#fff;border-radius:32px;padding:44px 34px">
-      <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9CC5B4;margin-bottom:14px;text-align:center">O Método DAC</p>
-      <h2 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#fff;font-size:1.6rem;margin:0 0 16px;text-align:center">Por que tanto psicólogo faz curso de marketing e continua no mesmo faturamento?</h2>
-      <p style="color:#DCE8E2;text-align:center;max-width:520px;margin:0 auto 28px">Porque estratégia aplicada em cima de crença errada não sustenta. O DAC segue a ordem que funciona:</p>
-
-      <div style="display:flex;gap:16px;margin-bottom:22px">
-        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.4rem;color:#9CC5B4;flex-shrink:0">D</div>
-        <div>
-          <h3 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#fff;font-size:1.15rem;margin:0 0 6px">Desconstrução de crenças</h3>
-          <p style="color:#DCE8E2;font-size:.96rem;margin:0">O ponto de partida que quase todo mundo pula. Dinheiro, valor profissional, medo de cobrar, a certeza de que "ninguém paga caro por psicologia". Sem tratar a raiz, nenhuma técnica dura.</p>
-        </div>
-      </div>
-      <div style="display:flex;gap:16px;margin-bottom:22px">
-        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.4rem;color:#9CC5B4;flex-shrink:0">A</div>
-        <div>
-          <h3 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#fff;font-size:1.15rem;margin:0 0 6px">Aceleração da clínica</h3>
-          <p style="color:#DCE8E2;font-size:.96rem;margin:0">Captação por múltiplos canais (orgânico e pago), posicionamento, comunicação ética dentro das normas do CFP, parcerias e reorganização da clínica.</p>
-        </div>
-      </div>
-      <div style="display:flex;gap:16px">
-        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.4rem;color:#9CC5B4;flex-shrink:0">C</div>
-        <div>
-          <h3 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#fff;font-size:1.15rem;margin:0 0 6px">Consolidação financeira</h3>
-          <p style="color:#DCE8E2;font-size:.96rem;margin:0">Gestão, precificação, contabilidade para psicólogos e previsibilidade — a estrutura para sustentar e crescer o faturamento, mês após mês.</p>
+<!-- HERO -->
+<section>
+  <div class="container">
+    <p class="label">Mentoria Individual DAC · 6 meses</p>
+    <h1>sua clínica tem um teto de vidro. em 6 meses, a gente rompe ele juntos.</h1>
+    <div class="grid-2" style="margin-top:56px">
+      <p class="label">Para quem</p>
+      <div>
+        <p class="lead">Mentoria individual para psicólogos com 2+ anos de formação que querem estruturar a clínica, ter pacientes chegando com consistência e construir o caminho para <strong style="font-weight:500">R$10 a R$15 mil por mês, sem convênios</strong>.</p>
+        <div class="cta-wrap">
+          <a class="selo" href="https://pay.kiwify.com.br/o8dA7PG" data-evento="checkout_mentoria">Quero começar a mentoria</a>
+          <p class="cta-note">Acesso liberado assim que a matrícula for confirmada</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ENTREGA -->
-  <section style="padding:0 0 56px">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px;text-align:center">
-      <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1E4D40;margin-bottom:14px">Como funciona</p>
-      <h2 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#1C2321;font-size:1.75rem;margin:0 0 12px">Acompanhamento individual, de verdade</h2>
-      <p style="color:#5A6660;margin-bottom:26px">Não é curso que você assiste sozinho. É a estrutura de uma supervisão — aplicada ao negócio da sua clínica.</p>
-
-      <div style="text-align:left;display:grid;gap:12px">
-        <div style="background:#E8F0EC;border-radius:20px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start">
-          <span style="color:#1E4D40;font-weight:700;font-size:1.2rem;flex-shrink:0">✓</span>
-          <div><b style="display:block;margin-bottom:2px">12 sessões individuais 1:1 com a Andreza</b><p style="margin:0;font-size:.95rem;color:#3f4b46">Encontros quinzenais ao longo de 6 meses. Estratégia construída para o SEU caso, sua especialidade e sua cidade.</p></div>
-        </div>
-        <div style="background:#E8F0EC;border-radius:20px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start">
-          <span style="color:#1E4D40;font-weight:700;font-size:1.2rem;flex-shrink:0">✓</span>
-          <div><b style="display:block;margin-bottom:2px">Aulas gravadas + exercícios do Método DAC</b><p style="margin:0;font-size:.95rem;color:#3f4b46">Todos os módulos — crenças, captação, tráfego, gestão, precificação — com acesso durante os 6 meses.</p></div>
-        </div>
-        <div style="background:#E8F0EC;border-radius:20px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start">
-          <span style="color:#1E4D40;font-weight:700;font-size:1.2rem;flex-shrink:0">✓</span>
-          <div><b style="display:block;margin-bottom:2px">Suporte entre sessões</b><p style="margin:0;font-size:.95rem;color:#3f4b46">Canal direto para dúvidas de implementação, para você não travar entre um encontro e outro.</p></div>
-        </div>
-        <div style="background:#E8F0EC;border-radius:20px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start">
-          <span style="color:#1E4D40;font-weight:700;font-size:1.2rem;flex-shrink:0">✓</span>
-          <div><b style="display:block;margin-bottom:2px">Plano de implementação com metas</b><p style="margin:0;font-size:.95rem;color:#3f4b46">Definimos a meta no início — como foi com a Susy — e acompanhamos os números até lá.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROVA SOCIAL -->
-  <section style="padding:0 0 56px">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px;text-align:center">
-      <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1E4D40;margin-bottom:14px">Quem já passou por aqui</p>
-      <h2 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#1C2321;font-size:1.75rem;margin:0 0 24px">"Teve meses que até dobrei a meta."</h2>
-
-      <div style="background:#fff;border-radius:28px;padding:34px 30px;box-shadow:0 12px 32px rgba(30,77,64,.1)">
-        <blockquote style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.18rem;line-height:1.55;margin:0 0 20px">"Saí de empregos que eu considerava inferiores à minha capacidade técnica e hoje alcancei a meta que colocamos lá no início — teve meses que até dobrei. Seu trabalho foi essencial e fez total diferença para essa virada de chave na minha vida profissional."</blockquote>
-        <div style="display:flex;align-items:center;gap:14px;justify-content:center">
-          <div style="width:52px;height:52px;border-radius:50%;flex-shrink:0;overflow:hidden">
-            <img src="img/susy.jpg" alt="Foto de Susy Morais" width="52" height="52" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          </div>
-          <div style="text-align:left"><b style="display:block;font-size:.98rem">Susy Morais</b><span style="font-size:.85rem;color:#5A6660">Psicóloga · Avaliação psicológica</span></div>
-        </div>
-        <div style="margin-top:18px;padding-top:18px;border-top:1px dashed #D9DFDB;font-size:.95rem">Susy faturava pouco quando entrou. Em 5 meses, estruturou a clínica de avaliações e hoje fatura <b style="color:#1E4D40">10x mais</b> do que faturava.</div>
-      </div>
-
-      <div style="background:#fff;border-radius:28px;padding:34px 30px;box-shadow:0 12px 32px rgba(30,77,64,.1);margin-top:22px">
-        <blockquote style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.18rem;line-height:1.55;margin:0 0 20px">"Não foi apenas um número do Instagram que mudou. Meu faturamento dobrou, mais pacientes chegaram, mais turnos eu fui abrindo. E isso foi exatamente o que você me ensinou: a descomplicar a clínica. Indico de olhos fechados a mentoria, mas para quem está disposto a mudar."</blockquote>
-        <div style="display:flex;align-items:center;gap:14px;justify-content:center">
-          <div style="width:52px;height:52px;border-radius:50%;flex-shrink:0;overflow:hidden">
-            <img src="img/jessica.jpg" alt="Foto de Jéssica Nobre" width="52" height="52" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          </div>
-          <div style="text-align:left"><b style="display:block;font-size:.98rem">Jéssica Nobre</b><span style="font-size:.85rem;color:#5A6660">Psicóloga · Relacionamentos</span></div>
-        </div>
-        <div style="margin-top:18px;padding-top:18px;border-top:1px dashed #D9DFDB;font-size:.95rem">Jéssica travava por medo de ser julgada. Depois da mentoria, dobrou o faturamento e abriu novos turnos para dar conta da procura.</div>
-      </div>
-
-      <p style="font-size:.78rem;color:#5A6660;margin-top:14px;margin-bottom:0">Resultados individuais variam conforme especialidade, dedicação e implementação. Nenhum resultado financeiro é garantido.</p>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section style="padding:0 0 56px">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px">
-      <div style="background:#E8F0EC;border-radius:28px;padding:34px 30px;display:grid;gap:26px;grid-template-columns:150px 1fr;align-items:center">
-        <div style="width:130px;height:130px;border-radius:50%;border:4px solid #fff;box-shadow:0 8px 24px rgba(30,77,64,.14);overflow:hidden;margin:0 auto">
-          <div class="foto-placeholder" style="font-size:2.4rem">AB</div>
-        </div>
-        <div>
-          <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1E4D40;margin-bottom:14px">Quem conduz</p>
-          <h2 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#1C2321;font-size:1.6rem;margin:0 0 16px">Andreza Barros</h2>
-          <p>Psicóloga clínica há mais de 10 anos, especialista em construção de clínicas lucrativas para psicólogos. Depois de estruturar a própria clínica sem depender de convênios, criou o Método DAC para encurtar o caminho de colegas que têm a competência — mas nunca receberam a estrutura.</p>
-          <p style="color:#5A6660;font-size:.9rem;margin:0">Instagram: @andreza.barros.psi · CRP 17/3631</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFERTA -->
-  <section id="aplicar" style="padding:8px 16px 56px">
-    <div style="width:100%;max-width:640px;margin:0 auto">
-      <div style="background:#FDF6F1;border:2px solid #C25E3A;border-radius:28px;padding:40px 32px;text-align:center">
-        <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C25E3A;margin-bottom:14px">Investimento</p>
-        <h3 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#1C2321;font-size:1.4rem;margin:0 0 6px">Mentoria Individual DAC — 6 meses</h3>
-        <p style="color:#5A6660;font-size:.95rem">12 sessões 1:1 · aulas + exercícios · suporte entre sessões · plano com metas</p>
-
-        <p style="font-family:'Fraunces',Georgia,serif;font-size:2.6rem;font-weight:700;color:#1E4D40;line-height:1.1;margin:14px 0 4px">R$2.997</p>
-        <p style="color:#5A6660;font-size:.92rem;margin-bottom:22px">ou 12x de R$249,75 no cartão</p>
-
-        <div style="background:#fff;border-radius:16px;padding:18px 20px;margin:0 0 24px;font-size:.93rem;text-align:left;display:flex;gap:12px;align-items:flex-start">
-          <div style="width:36px;height:36px;border-radius:50%;background:#E8F0EC;color:#1E4D40;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;font-family:'Fraunces',Georgia,serif">✓</div>
-          <div><b style="color:#1C2321">Garantia de alinhamento</b><p style="margin:4px 0 0;color:#5A6660">Se depois da primeira sessão você sentir que não é o momento certo, é só me avisar, devolvo 100% do valor, sem burocracia.</p></div>
-        </div>
-        <a href="https://pay.kiwify.com.br/o8dA7PG" style="display:inline-block;background:#1E4D40;color:#fff;font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:1.05rem;padding:18px 34px;border-radius:999px;text-align:center;box-shadow:0 10px 26px rgba(30,77,64,.22);width:100%;box-sizing:border-box" data-evento="checkout_mentoria">Quero começar a mentoria</a>
-        <p style="font-size:.85rem;color:#5A6660;margin-top:12px;text-align:center">Pagamento processado com segurança · acesso liberado após a confirmação</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section style="padding:0 0 56px">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px;text-align:center">
-      <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1E4D40;margin-bottom:14px">Perguntas frequentes</p>
-      <h2 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#1C2321;font-size:1.75rem;margin:0 0 26px">O que você pode estar se perguntando</h2>
-
-      <div style="text-align:left">
-        <details><summary>Sou recém-formado. A mentoria serve para mim?</summary><p>A mentoria foi desenhada para psicólogos com 2+ anos de formação e alguma prática clínica em andamento — é nesse perfil que o método gera os melhores resultados. Se você está começando agora, me chama no WhatsApp e conversamos com honestidade se este é o momento certo pra você.</p></details>
-        <details><summary>Atendo online. Funciona?</summary><p>Sim. Captação, posicionamento, precificação e gestão se aplicam a clínica online, presencial ou híbrida — inclusive a transição entre modelos é um dos temas trabalhados.</p></details>
-        <details><summary>Em quanto tempo vejo resultado?</summary><p>Depende do seu ponto de partida, especialidade e implementação. A estrutura da mentoria são 6 meses com metas definidas no início e acompanhadas quinzenalmente. Resultados como o da Susy (5 meses) existem, mas não são promessa — são consequência de implementação consistente.</p></details>
-        <details><summary>O marketing que vou aprender é compatível com o código de ética?</summary><p>Totalmente. Toda a comunicação ensinada respeita as normas do CFP: sem promessa de resultado terapêutico, sem exposição de pacientes, sem sensacionalismo. Posicionamento ético não é limitação — é o que constrói autoridade duradoura nesse mercado.</p></details>
-        <details><summary>E se eu não puder pagar à vista?</summary><p>Sim, é possível parcelar em até 12x no cartão, direto no checkout.</p></details>
-        <details><summary>Por que é individual e não em grupo?</summary><p>Porque funciona melhor: 12 sessões 1:1, além de suporte entre encontros. Isso exige uma agenda mais enxuta da minha parte, mas garante que cada decisão seja pensada pro SEU caso, não pra média de uma turma.</p></details>
-        <details><summary>A sessão de diagnóstico é mesmo gratuita?</summary><p>Sim, e é diagnóstico de verdade: você sai com o mapeamento do seu gargalo independente de fechar ou não a mentoria. Meu compromisso público é esse — minha reputação no nicho vale mais que uma venda.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section style="padding:0 16px 56px">
-    <div style="width:100%;max-width:720px;margin:0 auto;background:#1E4D40;border-radius:32px;padding:48px 32px;text-align:center">
-      <h2 style="font-family:'Fraunces',Georgia,serif;line-height:1.18;color:#fff;font-size:1.65rem;margin:0 0 18px">O teto de vidro não se rompe com mais esforço.<br>Se rompe com estrutura.</h2>
-      <p style="color:#DCE8E2;max-width:480px;margin:0 auto 28px">Você já tem a competência. Os próximos 6 meses podem ser a construção da clínica que sustenta ela.</p>
-      <a href="https://pay.kiwify.com.br/o8dA7PG" style="display:inline-block;background:#fff;color:#1E4D40;font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:1.05rem;padding:18px 34px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.18);min-width:340px" data-evento="checkout_mentoria">Quero começar a mentoria</a>
-      <p style="font-size:.85rem;color:#B9D2C7;margin-top:14px">Garantia de alinhamento na primeira sessão</p>
-      <p style="font-size:.85rem;margin-top:16px"><a href="https://wa.me/5584987619997?text=Oi%20Andreza!%20J%C3%A1%20conhe%C3%A7o%20seu%20trabalho%20e%20quero%20entrar%20na%20mentoria." style="color:#B9D2C7;text-decoration:underline">Já conhece meu trabalho e sabe que quer entrar? Fale comigo direto pelo WhatsApp</a></p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer style="padding:36px 0 110px">
-    <div style="width:100%;max-width:720px;margin:0 auto;padding:0 22px">
-      <p style="font-size:.82rem;color:#5A6660;text-align:center;margin-bottom:6px">Descomplicando a Clínica © 2026</p>
-      <p style="font-size:.78rem;color:#5A6660;text-align:center;margin-bottom:6px"><a href="https://wa.me/5584987619997?text=Oi%20Andreza!%20J%C3%A1%20conhe%C3%A7o%20seu%20trabalho%20e%20quero%20entrar%20na%20mentoria." style="color:#5A6660;text-decoration:underline">Já conhece meu trabalho e sabe que quer entrar? Fale comigo direto pelo WhatsApp</a></p>
-      <p style="font-size:.82rem;color:#5A6660;text-align:center;margin-bottom:0"><a href="https://legal.andrezabarros.com.br/" style="color:#5A6660">Política de privacidade</a> · <a href="https://legal.andrezabarros.com.br/termos/" style="color:#5A6660">Termos</a></p>
-    </div>
-  </footer>
-
-  <!-- STICKY CTA MOBILE -->
-  <div id="sticky-mobile" style="display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(251,250,247,.96);backdrop-filter:blur(10px);border-top:1px solid #D9DFDB;z-index:999">
-    <a href="https://pay.kiwify.com.br/o8dA7PG" style="display:block;background:#1E4D40;color:#fff;font-family:'Sora',system-ui,sans-serif;font-weight:600;font-size:.98rem;padding:15px;border-radius:999px;text-align:center" data-evento="checkout_mentoria">Quero começar a mentoria</a>
   </div>
+</section>
 
+<!-- DORES -->
+<section class="bege">
+  <div class="container">
+    <p class="label">Talvez você se reconheça aqui</p>
+    <h2>competência você tem de sobra. o que falta é estrutura.</h2>
+    <ul class="lista">
+      <li><span class="num">01</span><div><h3>Agenda cheia, conta vazia</h3><p>Você atende muito, cobra pouco e não reajusta há tempo demais, porque uma voz interna insiste que "ninguém paga caro por psicologia".</p></div></li>
+      <li><span class="num">02</span><div><h3>Paciente que chega por sorte</h3><p>Sem fluxo de captação, o mês bom depende de indicação. E o mês ruim vira pânico silencioso.</p></div></li>
+      <li><span class="num">03</span><div><h3>Clínica sem processos</h3><p>Sem contrato, sem política de faltas, sem previsibilidade. Cada cancelamento é prejuízo e desgaste.</p></div></li>
+      <li><span class="num">04</span><div><h3>Dinheiro que entra e some</h3><p>Você fatura, paga as contas e não sabe dizer quanto sobrou, nem quanto poderia crescer.</p></div></li>
+    </ul>
+    <p class="muted" style="margin-top:40px">Nada disso é falta de capacidade técnica. É o que acontece quando um profissional excelente sai da graduação <strong style="color:var(--tinta);font-weight:500">sem nunca ter aprendido a construir um negócio</strong>, porque ninguém ensinou.</p>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="escuro">
+  <div class="container">
+    <p class="label">O Método DAC</p>
+    <h2>por que tanto psicólogo faz curso de marketing e continua no mesmo faturamento?</h2>
+    <p class="muted lead" style="margin-top:24px">Porque estratégia aplicada em cima de crença errada não sustenta. O DAC segue a ordem que funciona:</p>
+    <ul class="lista lista-dac">
+      <li><span class="num">D</span><div><h3>Desconstrução de crenças</h3><p>O ponto de partida que quase todo mundo pula. Dinheiro, valor profissional, medo de cobrar, a certeza de que "ninguém paga caro por psicologia". Sem tratar a raiz, nenhuma técnica dura.</p></div></li>
+      <li><span class="num">A</span><div><h3>Aceleração da clínica</h3><p>Captação por múltiplos canais (orgânico e pago), posicionamento, comunicação ética dentro das normas do CFP, parcerias e reorganização da clínica.</p></div></li>
+      <li><span class="num">C</span><div><h3>Consolidação financeira</h3><p>Gestão, precificação, contabilidade para psicólogos e previsibilidade, a estrutura para sustentar e crescer o faturamento, mês após mês.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section>
+  <div class="container">
+    <p class="label">Quem conduz</p>
+    <div class="grid-2">
+      <div class="foto-placeholder">AB</div>
+      <div>
+        <h2 style="margin-bottom:24px">andreza barros</h2>
+        <p class="lead">Psicóloga clínica há mais de 10 anos, especialista em construção de clínicas lucrativas para psicólogos. Depois de estruturar a própria clínica sem depender de convênios, criou o Método DAC para encurtar o caminho de colegas que têm a competência, mas nunca receberam a estrutura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTREGA -->
+<section class="bege">
+  <div class="container">
+    <p class="label">Como funciona</p>
+    <h2>acompanhamento individual, de verdade</h2>
+    <p class="muted lead" style="margin-top:24px">Não é curso que você assiste sozinho. É a estrutura de uma supervisão, aplicada ao negócio da sua clínica.</p>
+    <ul class="lista">
+      <li><span class="num">01</span><div><h3>12 sessões individuais 1:1 com a Andreza</h3><p>Encontros quinzenais ao longo de 6 meses. Estratégia construída para o SEU caso, sua especialidade e sua cidade.</p></div></li>
+      <li><span class="num">02</span><div><h3>Aulas gravadas + exercícios do Método DAC</h3><p>Todos os módulos, crenças, captação, tráfego, gestão, precificação, com acesso durante os 6 meses.</p></div></li>
+      <li><span class="num">03</span><div><h3>Suporte entre sessões</h3><p>Canal direto para dúvidas de implementação, para você não travar entre um encontro e outro.</p></div></li>
+      <li><span class="num">04</span><div><h3>Plano de implementação com metas</h3><p>Definimos a meta no início, como foi com a Susy, e acompanhamos os números até lá.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section>
+  <div class="container">
+    <p class="label">Quem já passou por aqui</p>
+    <h2>"teve meses que até dobrei a meta."</h2>
+    <div style="margin-top:48px">
+      <div class="depo">
+        <blockquote>"Saí de empregos que eu considerava inferiores à minha capacidade técnica e hoje alcancei a meta que colocamos lá no início, teve meses que até dobrei. Seu trabalho foi essencial e fez total diferença para essa virada de chave na minha vida profissional."</blockquote>
+        <div class="depo-autor">
+          <img class="foto" src="img/susy.jpg" alt="Foto de Susy Morais" width="52" height="52" loading="lazy">
+          <div><b>Susy Morais</b><span>Psicóloga · Avaliação psicológica</span></div>
+        </div>
+        <p class="depo-resultado">Susy faturava pouco quando entrou. Em 5 meses, estruturou a clínica de avaliações e hoje fatura <b>10x mais</b> do que faturava.</p>
+      </div>
+      <div class="depo">
+        <blockquote>"Não foi apenas um número do Instagram que mudou. Meu faturamento dobrou, mais pacientes chegaram, mais turnos eu fui abrindo. E isso foi exatamente o que você me ensinou: a descomplicar a clínica. Indico de olhos fechados a mentoria, mas para quem está disposto a mudar."</blockquote>
+        <div class="depo-autor">
+          <img class="foto" src="img/jessica.jpg" alt="Foto de Jéssica Nobre" width="52" height="52" loading="lazy">
+          <div><b>Jéssica Nobre</b><span>Psicóloga · Relacionamentos</span></div>
+        </div>
+        <p class="depo-resultado">Jéssica travava por medo de ser julgada. Depois da mentoria, dobrou o faturamento e abriu novos turnos para dar conta da procura.</p>
+      </div>
+    </div>
+    <p class="label" style="margin-top:24px;margin-bottom:0;font-size:.62rem">Resultados individuais variam conforme especialidade, dedicação e implementação. Nenhum resultado financeiro é garantido.</p>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="escuro" id="aplicar">
+  <div class="container">
+    <p class="label">Investimento</p>
+    <h2>mentoria individual dac, 6 meses</h2>
+    <p class="preco">12x de R$249,75<small>no cartão</small></p>
+    <p class="preco-avista">ou R$2.997 à vista</p>
+    <ul class="oferta-linhas">
+      <li><span class="k">Inclui</span><span>12 sessões 1:1 · aulas + exercícios · suporte entre sessões · plano com metas</span></li>
+      <li><span class="k">Garantia</span><span>Se depois da primeira sessão você sentir que não é o momento certo, é só me avisar, devolvo 100% do valor, sem burocracia.</span></li>
+      <li><span class="k">Acesso</span><span>Liberado assim que a matrícula for confirmada</span></li>
+    </ul>
+    <div class="cta-wrap">
+      <a class="selo" href="https://pay.kiwify.com.br/o8dA7PG" data-evento="checkout_mentoria">Quero começar a mentoria</a>
+      <p class="cta-note">Pagamento processado com segurança</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bege">
+  <div class="container">
+    <p class="label">Perguntas frequentes</p>
+    <h2>o que você pode estar se perguntando</h2>
+    <div style="margin-top:48px">
+      <details><summary><span class="num">01</span><span>Sou recém-formado. A mentoria serve para mim?</span><span class="mais">+</span></summary><p>A mentoria foi desenhada para psicólogos com 2+ anos de formação e alguma prática clínica em andamento, é nesse perfil que o método gera os melhores resultados. Se você está começando agora, me chama no WhatsApp e conversamos com honestidade se este é o momento certo pra você.</p></details>
+      <details><summary><span class="num">02</span><span>Atendo online. Funciona?</span><span class="mais">+</span></summary><p>Sim. Captação, posicionamento, precificação e gestão se aplicam a clínica online, presencial ou híbrida, inclusive a transição entre modelos é um dos temas trabalhados.</p></details>
+      <details><summary><span class="num">03</span><span>Em quanto tempo vejo resultado?</span><span class="mais">+</span></summary><p>Depende do seu ponto de partida, especialidade e implementação. A estrutura da mentoria são 6 meses com metas definidas no início e acompanhadas quinzenalmente. Resultados como o da Susy (5 meses) existem, mas não são promessa, são consequência de implementação consistente.</p></details>
+      <details><summary><span class="num">04</span><span>O marketing que vou aprender é compatível com o código de ética?</span><span class="mais">+</span></summary><p>Totalmente. Toda a comunicação ensinada respeita as normas do CFP: sem promessa de resultado terapêutico, sem exposição de pacientes, sem sensacionalismo. Posicionamento ético não é limitação, é o que constrói autoridade duradoura nesse mercado.</p></details>
+      <details><summary><span class="num">05</span><span>E se eu não puder pagar à vista?</span><span class="mais">+</span></summary><p>Sim, é possível parcelar em até 12x no cartão, direto no checkout.</p></details>
+      <details><summary><span class="num">06</span><span>Por que é individual e não em grupo?</span><span class="mais">+</span></summary><p>Porque funciona melhor: 12 sessões 1:1, além de suporte entre encontros. Isso exige uma agenda mais enxuta da minha parte, mas garante que cada decisão seja pensada pro SEU caso, não pra média de uma turma.</p></details>
+      <details><summary><span class="num">07</span><span>A sessão de diagnóstico é mesmo gratuita?</span><span class="mais">+</span></summary><p>Sim, e é diagnóstico de verdade: você sai com o mapeamento do seu gargalo independente de fechar ou não a mentoria. Meu compromisso público é esse, minha reputação no nicho vale mais que uma venda.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="escuro">
+  <div class="container">
+    <h2>o teto de vidro não se rompe com mais esforço. se rompe com estrutura.</h2>
+    <p class="muted lead" style="margin-top:24px">Você já tem a competência. Os próximos 6 meses podem ser a construção da clínica que sustenta ela.</p>
+    <div class="cta-wrap">
+      <a class="selo" href="https://pay.kiwify.com.br/o8dA7PG" data-evento="checkout_mentoria">Quero começar a mentoria</a>
+      <p class="cta-note">Garantia de alinhamento na primeira sessão</p>
+    </div>
+    <p class="label" style="margin-top:40px;margin-bottom:0"><a href="https://wa.me/5584987619997?text=Oi%20Andreza!%20J%C3%A1%20conhe%C3%A7o%20seu%20trabalho%20e%20quero%20entrar%20na%20mentoria." style="text-decoration:underline;text-underline-offset:3px">Já conhece meu trabalho? Fale comigo direto pelo WhatsApp</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Descomplicando a Clínica © 2026</p>
+    <p><a href="https://legal.andrezabarros.com.br/">Política de privacidade</a> · <a href="https://legal.andrezabarros.com.br/termos/">Termos</a></p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky-mobile">
+  <a class="btn" href="https://pay.kiwify.com.br/o8dA7PG" data-evento="checkout_mentoria">Quero começar a mentoria</a>
 </div>
 
 <script>
@@ -282,14 +302,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     function onScroll(){
       const y = window.scrollY || 0;
       const docH = document.documentElement.scrollHeight;
-      const visible = y > 700 && y < docH - 900 && window.innerWidth < 700;
-      sticky.style.display = visible ? 'block' : 'none';
+      sticky.style.display = (y > 700 && y < docH - 900 && window.innerWidth < 700) ? 'block' : 'none';
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     onScroll();
   })();
-
   document.querySelectorAll('[data-evento="checkout_mentoria"]').forEach(function(a){
     a.addEventListener('click', function(){
       if(typeof dataLayer!=='undefined')dataLayer.push({event:'begin_checkout',item_name:'Mentoria Individual DAC'});
@@ -297,6 +315,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     });
   });
 </script>
-
 </body>
 </html>

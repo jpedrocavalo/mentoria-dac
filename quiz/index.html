@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Diagnóstico da Clínica — Andreza Barros</title>
+<title>Diagnóstico da Clínica, Andreza Barros</title>
 <meta name="description" content="Responda 8 perguntas rápidas e descubra o principal gargalo da sua clínica hoje.">
-<meta property="og:title" content="Diagnóstico da Clínica — Andreza Barros">
+<meta property="og:title" content="Diagnóstico da Clínica, Andreza Barros">
 <meta property="og:description" content="Responda 8 perguntas rápidas e descubra o principal gargalo da sua clínica hoje.">
 <meta property="og:type" content="website">
 
@@ -17,110 +17,178 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --verde:#1E4D40; --verde-escuro:#143830; --verde-claro:#E8F0EC;
-    --papel:#FBFAF7; --tinta:#1C2321; --suave:#5A6660; --linha:#D9DFDB;
-    --ambar:#C25E3A;
-    --font-d:'Fraunces',Georgia,serif; --font-b:'Sora',system-ui,sans-serif;
+    --creme:#EBE2D2; --creme-2:#DFD3BE; --bege-escuro:#D3C1A1; --carvao:#211D19;
+    --tinta:#1C1A17; --suave:#6B6154; --linha:#C4B69E; --acento:#A8865A;
+    --font-sans:'Inter Tight',system-ui,sans-serif; --font-mono:'Inter Tight',system-ui,sans-serif;
+    --max:1080px;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{font-family:var(--font-b);background:var(--verde-escuro);color:var(--tinta);
-       display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;
-       -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--tinta);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
 
-  /* fundo com textura sutil de "teto de vidro" */
-  body::before{content:"";position:fixed;inset:0;z-index:0;
-    background:
-      linear-gradient(160deg, var(--verde-escuro) 0%, var(--verde) 55%, var(--verde-escuro) 100%);
+  .faixa{position:sticky;top:0;z-index:999;background:var(--acento);color:var(--creme);font-family:var(--font-mono);font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:10px 16px}
+
+  .label{font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);margin-bottom:28px}
+  h1{font-size:clamp(2.1rem,5vw,3.9rem);line-height:1.05;letter-spacing:-.03em;font-weight:500;text-transform:lowercase;max-width:20ch}
+  h2{font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.1;letter-spacing:-.025em;font-weight:500;text-transform:lowercase;max-width:24ch}
+  h3{font-size:1.2rem;font-weight:500;letter-spacing:-.01em}
+  p{max-width:60ch}
+  .muted{color:var(--suave)}
+  .lead{font-size:1.15rem;line-height:1.5}
+
+  .grid-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px;align-items:start}
+  .grid-2 .label{margin-bottom:0}
+
+  .lista{list-style:none;margin-top:48px}
+  .lista li{display:grid;grid-template-columns:72px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--linha)}
+  .lista li:last-child{border-bottom:1px solid var(--linha)}
+  .lista .num{font-family:var(--font-mono);font-size:.72rem;color:var(--suave);padding-top:6px}
+  .lista-dac .num{font-size:2.4rem;font-weight:500;line-height:1;letter-spacing:-.02em;padding-top:0}
+  .lista h3{margin-bottom:6px}
+  .lista p{color:var(--suave);font-size:.96rem;max-width:58ch}
+
+  .bege{background:var(--bege-escuro)}
+  .bege .lista li,.bege details,.bege .depo{border-color:rgba(28,26,23,.22)}
+  .bege .label{color:#5B5245}
+  .bege .muted,.bege .lista p,.bege details p,.bege .depo-resultado,.bege .depo-autor span{color:#5B5245}
+  .bege .oferta-linhas li{border-color:rgba(28,26,23,.18)}
+  .bege .oferta-linhas .k{color:var(--suave)}
+
+  .escuro{background:var(--carvao);color:var(--creme)}
+  .escuro .label{color:rgba(243,238,228,.55)}
+  .escuro .muted,.escuro .lista p{color:rgba(243,238,228,.68)}
+  .escuro .lista li{border-color:rgba(243,238,228,.18)}
+  .escuro .lista .num{color:rgba(243,238,228,.55)}
+
+  .selo{display:inline-flex;align-items:center;gap:14px;background:var(--tinta);color:var(--creme);font-size:1rem;font-weight:500;letter-spacing:-.01em;padding:20px 32px;transition:background .2s,gap .2s}
+  .selo::after{content:"→";font-size:1.05rem}
+  .selo:hover{background:var(--acento);gap:20px}
+  .escuro .selo{background:var(--creme);color:var(--tinta)}
+  .escuro .selo:hover{background:var(--acento);color:var(--creme)}
+  .cta-wrap{display:flex;align-items:center;gap:28px;margin-top:40px;flex-wrap:wrap}
+  .cta-note{font-size:.85rem;color:var(--suave);max-width:28ch;line-height:1.5}
+  .escuro .cta-note{color:rgba(243,238,228,.6)}
+
+  .btn{display:inline-block;background:var(--tinta);color:var(--creme);font-size:.95rem;font-weight:500;padding:16px 24px;text-align:center;transition:background .2s}
+  .btn:hover{background:var(--acento)}
+
+  .depo{padding:40px 0;border-top:1px solid var(--linha)}
+  .depo:last-of-type{border-bottom:1px solid var(--linha)}
+  .depo blockquote{font-size:1.35rem;line-height:1.35;letter-spacing:-.015em;font-weight:500;max-width:34ch;margin-bottom:28px}
+  .depo-autor{display:flex;align-items:center;gap:16px}
+  .foto{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 15%;flex-shrink:0}
+  .depo-autor b{display:block;font-weight:500}
+  .depo-autor span{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
+  .depo-resultado{margin-top:20px;font-size:.95rem;color:var(--suave);max-width:56ch}
+  .depo-resultado b{color:var(--tinta);font-weight:500}
+
+  .foto-placeholder{width:240px;height:240px;border-radius:50%;background:var(--creme-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:1.4rem;color:var(--suave)}
+
+  .preco{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.035em;font-weight:500;margin:32px 0 6px}
+  .preco small{display:block;font-size:.45em;font-weight:400;color:var(--suave);letter-spacing:-.01em;margin-top:8px}
+  .preco-avista{font-size:1rem;color:var(--suave)}
+  .escuro .preco-avista,.escuro .preco small{color:rgba(243,238,228,.65)}
+  .oferta-linhas{list-style:none;margin:40px 0;max-width:520px}
+  .oferta-linhas li{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-top:1px solid rgba(243,238,228,.18);font-size:.95rem}
+  .oferta-linhas li:last-child{border-bottom:1px solid rgba(243,238,228,.18)}
+  .oferta-linhas .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,238,228,.55);padding-top:3px}
+
+  details{border-top:1px solid var(--linha)}
+  details:last-of-type{border-bottom:1px solid var(--linha)}
+  summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:72px 1fr auto;gap:24px;padding:24px 0;font-size:1.1rem;font-weight:500;align-items:baseline}
+  summary::-webkit-details-marker{display:none}
+  summary .num{font-family:var(--font-mono);font-size:.72rem;color:var(--suave)}
+  summary .mais{font-family:var(--font-mono);font-size:1rem;transition:transform .2s;display:inline-block}
+  details[open] summary .mais{transform:rotate(45deg)}
+  details p{padding:0 0 24px 96px;color:var(--suave);font-size:.95rem;max-width:64ch}
+
+  footer{padding:48px 0 120px;border-top:1px solid var(--linha)}
+  footer p{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);margin-bottom:10px}
+  footer a{text-decoration:underline;text-underline-offset:3px}
+
+  .sticky{display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(235,226,210,.96);backdrop-filter:blur(10px);border-top:1px solid var(--linha);z-index:998}
+  .sticky .btn{display:block;width:100%}
+
+  @media(max-width:760px){
+    section{padding:64px 0}
+    .grid-2{grid-template-columns:1fr;gap:24px}
+    .lista li{grid-template-columns:44px 1fr;gap:14px}
+    summary{grid-template-columns:44px 1fr auto;gap:14px}
+    details p{padding-left:58px}
+    .selo{width:100%;justify-content:space-between}
   }
-  body::after{content:"";position:fixed;top:8%;left:50%;width:1px;height:120px;
-    background:linear-gradient(var(--verde-claro),transparent);opacity:.25;transform:translateX(-160px) rotate(-8deg)}
 
-  .stage{position:relative;z-index:1;width:100%;max-width:560px}
+  body{background:var(--carvao);min-height:100vh}
+  .stage{width:100%;max-width:640px;margin:0 auto;padding:48px 24px 80px}
+  .panel{background:var(--creme);min-height:560px;display:flex;flex-direction:column}
+  .topo{padding:28px 32px 20px;border-bottom:1px solid var(--linha)}
+  .topo .label{margin-bottom:14px}
+  .barra-fundo{height:2px;background:var(--linha)}
+  .barra-preenchida{height:100%;background:var(--tinta);transition:width .4s ease;width:0%}
+  .contador{font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-top:10px}
 
-  .panel{background:var(--papel);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.35);
-         min-height:560px;display:flex;flex-direction:column}
-
-  /* topo: marca + progresso */
-  .topo{padding:28px 32px 18px;background:var(--ambar);border-radius:24px 24px 0 0;position:sticky;top:0;z-index:10}
-  .marca{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-  .marca-icone{width:28px;height:28px;border-radius:50%;background:#fff;position:relative;flex-shrink:0}
-  .marca-icone::after{content:"";position:absolute;left:6px;top:13px;width:16px;height:2px;background:var(--ambar);border-radius:2px}
-  .marca-nome{font-family:var(--font-d);font-size:.95rem;font-weight:600;color:#fff}
-  .barra-fundo{height:5px;background:rgba(255,255,255,.3);border-radius:999px;overflow:hidden}
-  .barra-preenchida{height:100%;background:#fff;border-radius:999px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
-  .contador{font-size:.75rem;color:rgba(255,255,255,.85);margin-top:8px;letter-spacing:.04em}
-
-  /* corpo das perguntas */
   .corpo{flex:1;padding:36px 32px;display:flex;flex-direction:column}
-  .tela{display:none;flex-direction:column;flex:1;animation:entra .45s ease both}
+  .tela{display:none;flex-direction:column;flex:1;animation:entra .35s ease both}
   .tela.ativa{display:flex}
-  @keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.tela{animation:none}}
 
-  .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ambar);margin-bottom:10px}
-  .pergunta{font-family:var(--font-d);font-size:1.5rem;font-weight:600;line-height:1.3;margin-bottom:8px;color:var(--tinta)}
-  .ajuda{font-size:.9rem;color:var(--suave);margin-bottom:26px}
+  .eyebrow{font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-bottom:12px}
+  .pergunta{font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.15;letter-spacing:-.02em;font-weight:500;margin-bottom:8px}
+  .ajuda{font-size:.92rem;color:var(--suave);margin-bottom:26px}
 
-  .opcoes{display:flex;flex-direction:column;gap:10px;margin-bottom:auto}
-  .opcao{position:relative}
+  .opcoes{display:flex;flex-direction:column;margin-bottom:auto;border-top:1px solid var(--linha)}
   .opcao input{position:absolute;opacity:0;pointer-events:none}
-  .opcao label{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1.5px solid var(--linha);
-               border-radius:14px;cursor:pointer;font-size:.95rem;color:var(--tinta);transition:border-color .15s,background .15s;background:#fff}
-  .opcao label:hover{border-color:var(--verde)}
-  .opcao input:checked + label{border-color:var(--verde);background:var(--verde-claro);font-weight:600}
-  .radio-visual{width:20px;height:20px;border-radius:50%;border:2px solid var(--linha);flex-shrink:0;position:relative;transition:border-color .15s}
-  .opcao input:checked + label .radio-visual{border-color:var(--verde)}
-  .opcao input:checked + label .radio-visual::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--verde)}
+  .opcao label{display:flex;align-items:center;gap:16px;padding:16px 4px;border-bottom:1px solid var(--linha);cursor:pointer;font-size:.98rem;transition:background .15s}
+  .opcao label:hover{background:rgba(28,26,23,.04)}
+  .opcao input:checked + label{font-weight:500}
+  .radio-visual{width:14px;height:14px;border:1px solid var(--tinta);flex-shrink:0;transition:background .15s}
+  .opcao input:checked + label .radio-visual{background:var(--tinta)}
 
-  .campo-texto{width:100%;font-family:var(--font-b);font-size:1rem;padding:16px 18px;border:1.5px solid var(--linha);
-               border-radius:14px;background:#fff;color:var(--tinta);outline:none;resize:vertical;min-height:110px;transition:border-color .15s}
-  .campo-texto:focus, .campo-linha:focus{border-color:var(--verde)}
-  .campo-linha{width:100%;font-family:var(--font-b);font-size:1rem;padding:16px 18px;border:1.5px solid var(--linha);
-               border-radius:14px;background:#fff;color:var(--tinta);outline:none;transition:border-color .15s;margin-bottom:14px}
+  .campo-linha,.campo-texto{width:100%;font-family:var(--font-sans);font-size:1rem;padding:14px 0;border:0;border-bottom:1px solid var(--linha);background:transparent;color:var(--tinta);outline:none;transition:border-color .15s;margin-bottom:6px}
+  .campo-texto{resize:vertical;min-height:110px;margin-top:6px}
+  .campo-linha:focus,.campo-texto:focus{border-bottom-color:var(--tinta)}
+  .campo-linha::placeholder,.campo-texto::placeholder{color:#A69C8B}
 
-  /* rodapé nav */
   .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-top:1px solid var(--linha)}
-  .btn{font-family:var(--font-b);font-weight:600;font-size:.95rem;border:none;cursor:pointer;border-radius:999px;
-       padding:14px 26px;transition:transform .12s,background .15s}
-  .btn:active{transform:scale(.97)}
-  .btn-primario{background:var(--verde);color:#fff;box-shadow:0 8px 20px rgba(30,77,64,.25)}
-  .btn-primario:hover{background:var(--verde-escuro)}
-  .btn-primario:disabled{background:var(--linha);color:var(--suave);cursor:not-allowed;box-shadow:none}
-  .btn-voltar{background:none;color:var(--suave);padding:14px 8px}
+  .btn-voltar{background:none;border:0;cursor:pointer;font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);padding:12px 0}
   .btn-voltar:hover{color:var(--tinta)}
   .btn-voltar:disabled{opacity:0;pointer-events:none}
+  .btn-avancar{background:var(--tinta);color:var(--creme);border:0;cursor:pointer;font-family:var(--font-sans);font-size:.95rem;font-weight:500;padding:14px 24px;transition:background .2s}
+  .btn-avancar:hover{background:var(--acento)}
+  .btn-avancar:disabled{background:var(--linha);color:var(--suave);cursor:not-allowed}
 
-  /* tela de resultado */
-  .resultado-icone{width:64px;height:64px;border-radius:50%;background:var(--verde-claro);display:flex;
-                    align-items:center;justify-content:center;margin-bottom:22px;font-size:1.6rem}
-  .resultado-titulo{font-family:var(--font-d);font-size:1.5rem;font-weight:600;margin-bottom:10px;color:var(--tinta)}
-  .resultado-texto{font-size:.98rem;color:var(--suave);margin-bottom:22px;line-height:1.6}
-  .cta-final{width:100%}
-  .nota-final{font-size:.78rem;color:var(--suave);text-align:center;margin-top:14px}
+  .resultado-titulo{font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.12;letter-spacing:-.025em;font-weight:500;margin-bottom:14px}
+  .resultado-texto{color:var(--suave);margin-bottom:22px;line-height:1.55;max-width:46ch}
+  .nota-final{font-family:var(--font-mono);font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);margin-top:auto;padding-top:24px;border-top:1px solid var(--linha)}
 
   @media(max-width:480px){
+    .stage{padding:24px 16px 60px}
     .corpo{padding:28px 22px}
     .topo{padding:22px 22px 16px}
     .nav{padding:18px 22px}
-    .pergunta{font-size:1.28rem}
   }
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX4MKC2H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+<div class="faixa">Descomplicando a Clínica · Andreza Barros</div>
+
 <div class="stage">
   <div class="panel">
 
     <div class="topo">
-      <div class="marca">
-        <div class="marca-icone"></div>
-        <span class="marca-nome">Descomplicando a Clínica</span>
-      </div>
+      <p class="label">Diagnóstico da Clínica</p>
       <div class="barra-fundo"><div class="barra-preenchida" id="barra"></div></div>
       <div class="contador" id="contador">Pergunta 1 de 8</div>
     </div>
@@ -131,7 +199,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="tela ativa" data-tela="1">
         <p class="eyebrow">Vamos começar</p>
         <p class="pergunta">Qual é o seu nome?</p>
-        <p class="ajuda">E seu melhor e-mail e WhatsApp — é por eles que eu te aviso sobre sua sessão de diagnóstico.</p>
+        <p class="ajuda">E seu melhor e-mail e WhatsApp, é por eles que eu te aviso sobre sua sessão de diagnóstico.</p>
         <input class="campo-linha" type="text" id="q1_nome" placeholder="Seu nome">
         <input class="campo-linha" type="email" id="q1_email" placeholder="Seu melhor e-mail">
         <input class="campo-linha" type="tel" id="q1_telefone" placeholder="Seu WhatsApp" inputmode="numeric" maxlength="15">
@@ -189,10 +257,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p class="eyebrow">Autodiagnóstico</p>
         <p class="pergunta">Na sua visão, qual é o principal gargalo da sua clínica hoje?</p>
         <div class="opcoes" data-grupo="gargalo">
-          <div class="opcao"><input type="radio" name="gargalo" id="ga1" value="mental"><label for="ga1"><span class="radio-visual"></span>Mental — medo de cobrar, insegurança no preço</label></div>
-          <div class="opcao"><input type="radio" name="gargalo" id="ga2" value="estrategico"><label for="ga2"><span class="radio-visual"></span>Estratégico — falta de captação de pacientes</label></div>
-          <div class="opcao"><input type="radio" name="gargalo" id="ga3" value="estrutural"><label for="ga3"><span class="radio-visual"></span>Estrutural — clínica desorganizada, sem processos</label></div>
-          <div class="opcao"><input type="radio" name="gargalo" id="ga4" value="financeiro"><label for="ga4"><span class="radio-visual"></span>Financeiro — dinheiro entra e some, sem clareza</label></div>
+          <div class="opcao"><input type="radio" name="gargalo" id="ga1" value="mental"><label for="ga1"><span class="radio-visual"></span>Mental, medo de cobrar, insegurança no preço</label></div>
+          <div class="opcao"><input type="radio" name="gargalo" id="ga2" value="estrategico"><label for="ga2"><span class="radio-visual"></span>Estratégico, falta de captação de pacientes</label></div>
+          <div class="opcao"><input type="radio" name="gargalo" id="ga3" value="estrutural"><label for="ga3"><span class="radio-visual"></span>Estrutural, clínica desorganizada, sem processos</label></div>
+          <div class="opcao"><input type="radio" name="gargalo" id="ga4" value="financeiro"><label for="ga4"><span class="radio-visual"></span>Financeiro, dinheiro entra e some, sem clareza</label></div>
         </div>
       </div>
 
@@ -200,7 +268,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="tela" data-tela="7">
         <p class="eyebrow">Sua motivação</p>
         <p class="pergunta">Por que agora? O que te fez chegar até aqui hoje?</p>
-        <p class="ajuda">Conta com suas palavras — isso me ajuda a entender seu momento.</p>
+        <p class="ajuda">Conta com suas palavras, isso me ajuda a entender seu momento.</p>
         <textarea class="campo-texto" id="q7_motivo" placeholder="Escreva aqui..."></textarea>
       </div>
 
@@ -217,17 +285,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <!-- TELA RESULTADO -->
       <div class="tela" data-tela="resultado">
-        <div class="resultado-icone">✓</div>
-        <p class="resultado-titulo" id="res-titulo">Inscrição confirmada!</p>
+        <p class="eyebrow">Inscrição confirmada</p>
+        <p class="resultado-titulo" id="res-titulo">você está na lista da sessão de diagnóstico.</p>
         <p class="resultado-texto" id="res-texto">Você está inscrito(a) na Sessão de Diagnóstico gratuita (30 minutos) com a Andreza Barros. Em breve você recebe um contato pra agendarmos o melhor horário.</p>
-        <p class="nota-final">Resposta enviada. Confira também sua caixa de spam nos próximos dias.</p>
+        <p class="nota-final">Resposta enviada · confira também sua caixa de spam nos próximos dias</p>
       </div>
 
     </div>
 
     <div class="nav" id="nav">
-      <button class="btn btn-voltar" id="btn-voltar">Voltar</button>
-      <button class="btn btn-primario" id="btn-avancar" disabled>Continuar</button>
+      <button class="btn-voltar" id="btn-voltar">Voltar</button>
+      <button class="btn-avancar" id="btn-avancar" disabled>Continuar</button>
     </div>
 
   </div>
@@ -294,11 +362,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       contador.textContent = 'Pergunta '+n+' de '+TOTAL;
       nav.style.display = 'flex';
       btnVoltar.disabled = (n===1);
-      btnAvancar.textContent = (n===TOTAL) ? 'Ver meu diagnóstico' : 'Continuar';
+      btnAvancar.textContent = (n===TOTAL) ? 'Enviar respostas' : 'Continuar';
       btnAvancar.disabled = !respostaValida(n);
     } else {
       nav.style.display = 'none';
       barra.style.width = '100%';
+      contador.textContent = 'Concluído';
     }
   }
 
@@ -311,7 +380,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if(typeof dataLayer!=='undefined')dataLayer.push({event:'quiz_completed',gargalo:respostas.gargalo});
     if(typeof fbq!=='undefined')fbq('track','CompleteRegistration',{content_name:'Quiz Diagnóstico Clínica'});
 
-    // Envio dos dados — planilha própria do quiz + planilha de Leads + Brevo (via Apps Script)
     const SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbzQAu-9-zFBstDxKaGW0s2OdxD-cvvE4osdlzoh-1z1rpGXRcHnl5Isd-Vi2HpGijgg/exec';
     if(SUBMIT_URL && SUBMIT_URL.indexOf('http') === 0){
       fetch(SUBMIT_URL, {
@@ -365,6 +433,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   mostrar(atual);
 })();
 </script>
-
 </body>
 </html>
