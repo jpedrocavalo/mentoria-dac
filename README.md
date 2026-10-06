@@ -12,7 +12,7 @@ O arquivo `index.html` deste pacote é um **design de referência**: HTML funcio
 ## Pendências antes de publicar (importante)
 1. **Fotos** — há dois placeholders de imagem (avatar da Andreza e da Susy Morais), marcados com `id="foto-andreza"` e `id="foto-susy"` no HTML. Substituir por `<img>` reais com as fotos definitivas.
 2. **Link do formulário de aplicação** — todos os botões CTA apontam para `#aplicar` (âncora da seção de oferta) ou `#link-do-formulario` (placeholder). Substituir pelo link real do formulário de aplicação.
-3. **CRP da Andreza** — aparece como `[NÚMERO]` no rodapé e na seção "Quem conduz".
+3. **CRP da Andreza**: 17/3631 (aparece na Política de Privacidade; o site principal usa o mesmo número).
 4. **Links de rodapé** — Política de Privacidade e Termos apontam para `#`.
 5. **GTM/Pixel** — nenhum tracking está incluído neste HTML; adicionar conforme a stack de analytics do projeto.
 6. **Depoimento da Susy Morais** — o texto assume autorização por escrito já concedida (confirmado no briefing do projeto). Confirmar antes de publicar.
