@@ -41,6 +41,15 @@
   section{padding:96px 0}
 
   .faixa{position:sticky;top:0;z-index:999;background:var(--acento);color:var(--creme);font-family:var(--font-mono);font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:10px 16px}
+/* faixa de topo como chamada: clica e desce até a oferta */
+a.faixa{display:block;text-decoration:none;color:var(--tinta);font-size:.78rem;letter-spacing:.1em;line-height:1.5;padding:11px 16px;transition:background .2s}
+a.faixa strong{font-weight:700}
+a.faixa span{font-weight:500;opacity:.92}
+a.faixa i{font-style:normal;display:inline-block;transition:transform .2s}
+a.faixa:hover{background:var(--carvao);color:var(--creme)}
+a.faixa:hover i{transform:translateX(4px)}
+@media (max-width:640px){a.faixa{font-size:.66rem;letter-spacing:.04em;padding:9px 12px}a.faixa span{display:block}}
+#form-captura{scroll-margin-top:56px}
 
   .label{font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);margin-bottom:28px}
   h1{font-size:clamp(2.1rem,5vw,3.9rem);line-height:1.05;letter-spacing:-.03em;font-weight:500;text-transform:lowercase;max-width:20ch}
@@ -144,7 +153,7 @@
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX4MKC2H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div class="faixa">Descomplicando a Clínica · Andreza Barros</div>
+<a class="faixa" href="#form-captura"><strong>A maioria dos psicólogos(as) cobra abaixo do próprio custo.</strong> <span>Calcule o seu valor mínimo, grátis <i aria-hidden="true">→</i></span></a>
 
 <section>
   <div class="container">
